@@ -1,1287 +1,1950 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Vidaaya 2026 | Farewell Party</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Vidaaya 2026 | Farewell Party</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
 
-<style>
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
-/* =========================================================
-   RESET
-========================================================= */
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet">
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-html {
-    scroll-behavior: smooth;
-}
+    <style>
 
-body {
-    background: #050505;
-    color: #eeeeee;
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
-}
+        /* =========================================
+           GLOBAL
+        ========================================= */
 
-:root {
-    --gold: #d4af37;
-    --light-gold: #f5df9a;
-    --dark-gold: #8d691d;
-    --silver: #d9d9d9;
-    --black: #050505;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
 
-/* =========================================================
-   OPENING PAGE
-========================================================= */
+        body {
+            min-height: 100vh;
 
-.opening {
-    position: fixed;
-    inset: 0;
+            background:
+                radial-gradient(
+                    circle at top,
+                    #211b12 0%,
+                    #080706 45%,
+                    #020202 100%
+                );
 
-    z-index: 9999;
+            color: #f4e7c1;
 
-    background: #050505;
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+            overflow-x: hidden;
+        }
 
-    transition:
-        opacity 0.8s ease,
-        visibility 0.8s ease;
-}
 
-.opening.hide {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
+        /* =========================================
+           OPENING SCREEN
+        ========================================= */
 
+        .opening {
 
-/* YOUR UPLOADED IMAGE */
+            position: fixed;
 
-.opening-card {
+            inset: 0;
 
-    width: min(92vw, 620px);
+            z-index: 9999;
 
-    height: min(92vh, 900px);
+            display: flex;
 
-    background-image:
-        url("./card.jpeg");
+            align-items: center;
 
-    background-size: cover;
+            justify-content: center;
 
-    background-position: center;
+            padding: 18px;
 
-    position: relative;
+            background:
+                radial-gradient(
+                    circle,
+                    #17130c,
+                    #030303 70%
+                );
 
-    border: 2px solid var(--gold);
+            transition:
+                opacity 1s ease,
+                visibility 1s ease;
+        }
 
-    box-shadow:
 
-        0 0 0 5px #050505,
+        .opening.hide {
 
-        0 0 0 7px var(--gold),
+            opacity: 0;
 
-        0 0 45px
-        rgba(212,175,55,0.4);
+            visibility: hidden;
 
-    overflow: hidden;
-}
+            pointer-events: none;
+        }
 
 
-/* Dark bottom overlay */
+        /* Opening image container */
 
-.opening-card::after {
+        .opening-card {
 
-    content: "";
+            position: relative;
 
-    position: absolute;
+            width: min(94vw, 620px);
 
-    inset: 0;
+            height: min(94vh, 900px);
 
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,0.9),
-            rgba(0,0,0,0.05) 45%
-        );
-}
+            overflow: hidden;
 
+            background: #050505;
 
-/* OPEN BUTTON */
+            border: 2px solid #d4af37;
 
-.open-btn {
+            box-shadow:
 
-    position: absolute;
+                0 0 0 4px #080808,
 
-    z-index: 3;
+                0 0 0 6px #a77b19,
 
-    bottom: 35px;
+                0 0 40px
+                rgba(212,175,55,0.45);
 
-    left: 50%;
+            animation:
+                openingAppear 1.2s ease;
+        }
 
-    transform: translateX(-50%);
 
-    padding: 15px 32px;
+        @keyframes openingAppear {
 
-    border: 1px solid var(--gold);
+            from {
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--light-gold),
-            var(--gold)
-        );
+                opacity: 0;
 
-    color: #111;
+                transform:
+                    scale(.92);
+            }
 
-    font-family: 'Cinzel', serif;
+            to {
 
-    font-weight: 700;
+                opacity: 1;
 
-    letter-spacing: 2px;
+                transform:
+                    scale(1);
+            }
+        }
 
-    cursor: pointer;
 
-    white-space: nowrap;
+        .opening-image {
 
-    transition: 0.4s;
-}
+            width: 100%;
 
-.open-btn:hover {
+            height: 100%;
 
-    transform:
-        translateX(-50%)
-        scale(1.06);
+            display: block;
 
-    box-shadow:
-        0 0 30px
-        rgba(212,175,55,0.5);
-}
+            object-fit: cover;
 
+            object-position: center;
+        }
 
-/* =========================================================
-   MAIN INVITATION
-========================================================= */
 
-.main {
-    display: none;
-}
+        .opening-overlay {
 
-.main.show {
+            position: absolute;
 
-    display: block;
+            inset: 0;
 
-    animation:
-        pageReveal 1s ease;
-}
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent 55%,
+                    rgba(0,0,0,.78)
+                );
 
-@keyframes pageReveal {
+            pointer-events: none;
+        }
 
-    from {
-        opacity: 0;
-    }
 
-    to {
-        opacity: 1;
-    }
-}
+        /* Opening button */
 
+        .open-btn {
 
-/* =========================================================
-   MAIN CARD
-========================================================= */
+            position: absolute;
 
-.wrapper {
+            z-index: 10;
 
-    width: min(1050px,94%);
+            bottom: 35px;
 
-    margin: 30px auto;
+            left: 50%;
 
-    position: relative;
+            transform:
+                translateX(-50%);
 
-    background:
-        radial-gradient(
-            circle at top,
-            #191919,
-            #050505 70%
-        );
+            padding: 15px 30px;
 
-    border: 2px solid var(--gold);
+            min-width: 230px;
 
-    box-shadow:
+            border: 1px solid #e2c15d;
 
-        0 0 0 6px #050505,
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7e7a5,
+                    #d4af37,
+                    #b8860b
+                );
 
-        0 0 0 8px var(--gold),
+            color: #080706;
 
-        0 0 50px
-        rgba(212,175,55,0.25);
+            font-family: "Cinzel", serif;
 
-    overflow: hidden;
-}
+            font-size: 14px;
 
+            font-weight: 700;
 
-/* INNER GOLD BORDER */
+            letter-spacing: 2px;
 
-.wrapper::before {
+            cursor: pointer;
 
-    content: "";
+            box-shadow:
+                0 0 20px
+                rgba(212,175,55,.35);
 
-    position: absolute;
+            transition:
+                .35s ease;
+        }
 
-    inset: 13px;
 
-    border:
-        1px solid
-        rgba(212,175,55,0.7);
+        .open-btn:hover {
 
-    pointer-events: none;
+            transform:
+                translateX(-50%)
+                scale(1.06);
 
-    z-index: 10;
-}
+            box-shadow:
+                0 0 35px
+                rgba(212,175,55,.75);
+        }
 
 
-/* =========================================================
-   ANIMATED LEAVES
-========================================================= */
+        /* =========================================
+           MAIN PAGE
+        ========================================= */
 
-.animated-leaves {
+        .main-page {
 
-    position: absolute;
+            display: none;
 
-    inset: 0;
+            min-height: 100vh;
 
-    overflow: hidden;
+            padding: 35px 15px;
 
-    pointer-events: none;
+            position: relative;
+        }
 
-    z-index: 4;
-}
 
+        .main-page.show {
 
-/* Individual leaves */
+            display: block;
 
-.fall-leaf {
+            animation:
+                pageReveal 1.2s ease;
+        }
 
-    position: absolute;
 
-    top: -10%;
+        @keyframes pageReveal {
 
-    color: var(--gold);
+            from {
 
-    font-family: Georgia, serif;
+                opacity: 0;
 
-    font-size: 38px;
+                transform:
+                    translateY(25px);
+            }
 
-    opacity: 0;
+            to {
 
-    filter:
-        drop-shadow(
-            0 0 5px
-            rgba(212,175,55,0.6)
-        );
+                opacity: 1;
 
-    animation:
-        leafFall linear infinite;
+                transform:
+                    translateY(0);
+            }
+        }
 
-    will-change:
-        transform,
-        opacity;
-}
 
+        /* =========================================
+           INVITATION WRAPPER
+        ========================================= */
 
-/* Different positions */
+        .wrapper {
 
-.leaf-a {
-    left: 5%;
-    animation-duration: 14s;
-    animation-delay: 1s;
-    font-size: 32px;
-}
+            position: relative;
 
-.leaf-b {
-    left: 15%;
-    animation-duration: 18s;
-    animation-delay: 5s;
-    font-size: 26px;
-}
+            width: min(100%, 950px);
 
-.leaf-c {
-    left: 27%;
-    animation-duration: 15s;
-    animation-delay: 8s;
-    font-size: 40px;
-}
+            margin: auto;
 
-.leaf-d {
-    left: 39%;
-    animation-duration: 20s;
-    animation-delay: 2s;
-    font-size: 28px;
-}
+            padding: 4px;
 
-.leaf-e {
-    left: 51%;
-    animation-duration: 16s;
-    animation-delay: 10s;
-    font-size: 36px;
-}
+            background:
+                linear-gradient(
+                    135deg,
+                    #76520e,
+                    #e4c15a,
+                    #9c711d,
+                    #f0d77d,
+                    #76520e
+                );
 
-.leaf-f {
-    left: 63%;
-    animation-duration: 19s;
-    animation-delay: 4s;
-    font-size: 30px;
-}
+            box-shadow:
+                0 0 50px
+                rgba(212,175,55,.25);
+        }
 
-.leaf-g {
-    left: 75%;
-    animation-duration: 14s;
-    animation-delay: 7s;
-    font-size: 42px;
-}
 
-.leaf-h {
-    left: 87%;
-    animation-duration: 21s;
-    animation-delay: 12s;
-    font-size: 27px;
-}
+        .invitation {
 
-.leaf-i {
-    left: 22%;
-    animation-duration: 22s;
-    animation-delay: 14s;
-    font-size: 25px;
-}
+            position: relative;
 
-.leaf-j {
-    left: 70%;
-    animation-duration: 17s;
-    animation-delay: 16s;
-    font-size: 34px;
-}
+            overflow: hidden;
 
+            min-height: 100vh;
 
-/* LEAF FALLING ANIMATION */
+            background:
 
-@keyframes leafFall {
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(212,175,55,.08),
+                    transparent 25%
+                ),
 
-    0% {
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(212,175,55,.06),
+                    transparent 25%
+                ),
 
-        transform:
-            translate3d(
-                0,
-                -10vh,
-                0
-            )
-            rotate(0deg)
-            scale(0.7);
+                linear-gradient(
+                    135deg,
+                    #050505,
+                    #0c0b09,
+                    #020202
+                );
 
-        opacity: 0;
-    }
+            border: 1px solid #d4af37;
 
-    8% {
+            padding:
+                70px
+                60px
+                60px;
 
-        opacity: 0.75;
-    }
+        }
 
-    25% {
 
-        transform:
-            translate3d(
-                50px,
-                25vh,
-                0
-            )
-            rotate(80deg)
-            scale(1);
-    }
+        /* =========================================
+           INNER GOLD BORDER
+        ========================================= */
 
-    50% {
+        .invitation::before {
 
-        transform:
-            translate3d(
-                -55px,
-                50vh,
-                0
-            )
-            rotate(180deg)
-            scale(0.9);
+            content: "";
 
-        opacity: 0.6;
-    }
+            position: absolute;
 
-    75% {
+            inset: 18px;
 
-        transform:
-            translate3d(
-                65px,
-                75vh,
-                0
-            )
-            rotate(270deg)
-            scale(1.05);
+            border: 1px solid
+                rgba(212,175,55,.75);
 
-        opacity: 0.5;
-    }
+            pointer-events: none;
 
-    90% {
+            z-index: 2;
+        }
 
-        opacity: 0.2;
-    }
 
-    100% {
+        .invitation::after {
 
-        transform:
-            translate3d(
-                -40px,
-                115vh,
-                0
-            )
-            rotate(360deg)
-            scale(0.7);
+            content: "";
 
-        opacity: 0;
-    }
-}
+            position: absolute;
 
+            inset: 27px;
 
-/* =========================================================
-   SIDE DECORATIVE LEAVES
-========================================================= */
+            border: 1px solid
+                rgba(212,175,55,.28);
 
-.side-leaf {
+            pointer-events: none;
 
-    position: absolute;
+            z-index: 2;
+        }
 
-    color: var(--gold);
 
-    font-size: 65px;
+        /* =========================================
+           DECORATIVE CORNERS
+        ========================================= */
 
-    opacity: 0.45;
+        .corner {
 
-    z-index: 3;
+            position: absolute;
 
-    pointer-events: none;
+            width: 95px;
 
-    animation:
-        sideLeafFloat
-        4s
-        ease-in-out
-        infinite;
-}
+            height: 95px;
 
-.side-left {
+            z-index: 8;
 
-    left: 20px;
+            opacity: .95;
 
-    top: 100px;
+            color: #d4af37;
+        }
 
-    transform: rotate(-20deg);
-}
 
-.side-right {
+        .corner::before,
+        .corner::after {
 
-    right: 20px;
+            content: "";
 
-    top: 100px;
+            position: absolute;
 
-    transform:
-        scaleX(-1)
-        rotate(-20deg);
-}
+            background: #d4af37;
 
-@keyframes sideLeafFloat {
+            box-shadow:
+                0 0 8px
+                rgba(212,175,55,.5);
+        }
 
-    0%,
-    100% {
 
-        transform:
-            translateY(0)
-            rotate(-10deg);
-    }
+        .corner::before {
 
-    50% {
+            width: 70px;
 
-        transform:
-            translateY(15px)
-            rotate(10deg);
-    }
-}
+            height: 1px;
+        }
 
 
-/* =========================================================
-   CONTENT
-========================================================= */
+        .corner::after {
 
-.content {
+            width: 1px;
 
-    position: relative;
+            height: 70px;
+        }
 
-    z-index: 6;
 
-    padding:
-        70px 8%;
-}
+        .corner-tl {
 
+            top: 24px;
 
-/* =========================================================
-   HERO
-========================================================= */
+            left: 24px;
+        }
 
-.hero {
 
-    min-height: 78vh;
+        .corner-tl::before {
 
-    display: flex;
+            left: 0;
 
-    align-items: center;
+            top: 0;
+        }
 
-    justify-content: center;
 
-    text-align: center;
-}
+        .corner-tl::after {
 
-.dept {
+            left: 0;
 
-    font-family: 'Cinzel', serif;
+            top: 0;
+        }
 
-    color: var(--silver);
 
-    letter-spacing: 7px;
+        .corner-tr {
 
-    font-size: 14px;
+            top: 24px;
 
-    margin-bottom: 20px;
-}
+            right: 24px;
 
-.title {
+            transform:
+                rotate(90deg);
+        }
 
-    font-family:
-        'Great Vibes',
-        cursive;
 
-    color: var(--gold);
+        .corner-br {
 
-    font-size:
-        clamp(
-            75px,
-            13vw,
-            150px
-        );
+            bottom: 24px;
 
-    line-height: 1;
-}
+            right: 24px;
 
-.year {
+            transform:
+                rotate(180deg);
+        }
 
-    font-family:
-        'Cinzel',
-        serif;
 
-    color: var(--silver);
+        .corner-bl {
 
-    letter-spacing: 10px;
+            bottom: 24px;
 
-    font-size: 34px;
+            left: 24px;
 
-    margin-top: 10px;
-}
+            transform:
+                rotate(270deg);
+        }
 
-.farewell {
 
-    font-family:
-        'Cinzel',
-        serif;
+        /* =========================================
+           LEAF BORDER
+        ========================================= */
 
-    color: var(--light-gold);
+        .leaf-border {
 
-    font-size:
-        clamp(
-            28px,
-            5vw,
-            50px
-        );
+            position: absolute;
 
-    letter-spacing: 4px;
+            inset: 0;
 
-    margin-top: 22px;
-}
+            z-index: 7;
 
-.line {
+            pointer-events: none;
 
-    height: 1px;
+            overflow: hidden;
+        }
 
-    width: 230px;
 
-    margin: 30px auto;
+        .border-leaf {
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--gold),
-            transparent
-        );
-}
+            position: absolute;
 
-.hero p {
+            display: block;
 
-    font-family:
-        'Playfair Display',
-        serif;
+            color: #d4af37;
 
-    color: #ddd;
+            font-family:
+                Georgia,
+                serif;
 
-    font-size: 19px;
+            font-size: 42px;
 
-    line-height: 1.85;
-}
+            opacity: .72;
 
+            filter:
+                drop-shadow(
+                    0 0 6px
+                    rgba(212,175,55,.4)
+                );
 
-/* =========================================================
-   SECTIONS
-========================================================= */
+            text-shadow:
+                0 0 8px
+                rgba(212,175,55,.3);
 
-.section {
+            animation:
+                borderLeafFloat
+                4s
+                ease-in-out
+                infinite;
+        }
 
-    margin-top: 80px;
-}
 
-.heading {
+        @keyframes borderLeafFloat {
 
-    text-align: center;
+            0% {
 
-    font-family:
-        'Cinzel',
-        serif;
+                opacity: .45;
 
-    color: var(--gold);
+                transform:
+                    translateY(0)
+                    rotate(0deg)
+                    scale(.9);
+            }
 
-    letter-spacing: 3px;
+            50% {
 
-    font-size: 30px;
-}
+                opacity: 1;
 
-.subline {
+                transform:
+                    translateY(-9px)
+                    rotate(8deg)
+                    scale(1.05);
 
-    height: 1px;
+                filter:
+                    drop-shadow(
+                        0 0 12px
+                        rgba(212,175,55,.8)
+                    );
+            }
 
-    width: 100px;
+            100% {
 
-    margin:
-        15px auto 38px;
+                opacity: .45;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--gold),
-            transparent
-        );
-}
+                transform:
+                    translateY(0)
+                    rotate(0deg)
+                    scale(.9);
+            }
+        }
 
 
-/* =========================================================
-   MESSAGE
-========================================================= */
+        /* Left */
 
-.message {
+        .left-leaf {
 
-    max-width: 850px;
+            left: 35px;
+        }
 
-    margin: auto;
+        .l1 {
+            top: 8%;
+        }
 
-    padding: 45px 35px;
+        .l2 {
+            top: 25%;
+            animation-delay: 1s;
+        }
 
-    text-align: center;
+        .l3 {
+            top: 43%;
+            animation-delay: 2s;
+        }
 
-    border:
-        1px solid
-        rgba(212,175,55,0.5);
+        .l4 {
+            top: 62%;
+            animation-delay: .6s;
+        }
 
-    background:
-        rgba(0,0,0,0.5);
+        .l5 {
+            top: 80%;
+            animation-delay: 1.5s;
+        }
 
-    position: relative;
-}
 
-.message::before {
+        /* Right */
 
-    content: "❝";
+        .right-leaf {
 
-    position: absolute;
+            right: 35px;
 
-    top: 0;
+            transform:
+                scaleX(-1);
+        }
 
-    left: 20px;
+        .r1 {
+            top: 8%;
+            animation-delay: .8s;
+        }
 
-    color: var(--gold);
+        .r2 {
+            top: 25%;
+            animation-delay: 1.7s;
+        }
 
-    font-size: 65px;
-}
+        .r3 {
+            top: 43%;
+            animation-delay: .3s;
+        }
 
-.message p {
+        .r4 {
+            top: 62%;
+            animation-delay: 1.2s;
+        }
 
-    font-family:
-        'Playfair Display',
-        serif;
+        .r5 {
+            top: 80%;
+            animation-delay: 2.2s;
+        }
 
-    color: #ddd;
 
-    font-size: 19px;
+        /* Top */
 
-    line-height: 1.85;
-}
+        .top-leaf {
 
-.signature {
+            top: 30px;
 
-    font-family:
-        'Great Vibes',
-        cursive;
+            transform:
+                rotate(90deg);
+        }
 
-    color: var(--gold);
+        .t1 {
+            left: 25%;
+        }
 
-    font-size: 38px;
+        .t2 {
+            left: 50%;
+            animation-delay: 1.2s;
+        }
 
-    margin-top: 25px;
-}
+        .t3 {
+            left: 75%;
+            animation-delay: 2s;
+        }
 
 
-/* =========================================================
-   EVENT DETAILS
-========================================================= */
+        /* Bottom */
 
-.details {
+        .bottom-leaf {
 
-    max-width: 760px;
+            bottom: 30px;
 
-    margin: auto;
+            transform:
+                rotate(-90deg);
+        }
 
-    display: grid;
+        .b1 {
+            left: 25%;
+            animation-delay: 1s;
+        }
 
-    grid-template-columns:
-        1fr 1fr;
+        .b2 {
+            left: 50%;
+            animation-delay: 2s;
+        }
 
-    border:
-        1px solid
-        rgba(212,175,55,0.5);
-}
+        .b3 {
+            left: 75%;
+            animation-delay: .5s;
+        }
 
-.detail {
 
-    text-align: center;
+        /* =========================================
+           FALLING LEAVES
+        ========================================= */
 
-    padding: 35px 20px;
-}
+        .animated-leaves {
 
-.detail:first-child {
+            position: absolute;
 
-    border-right:
-        1px solid
-        rgba(212,175,55,0.4);
-}
+            inset: 0;
 
-.icon {
+            overflow: hidden;
 
-    font-size: 35px;
+            pointer-events: none;
 
-    margin-bottom: 10px;
-}
+            z-index: 4;
+        }
 
-.detail h3 {
 
-    font-family:
-        'Cinzel',
-        serif;
+        .fall-leaf {
 
-    color: var(--gold);
+            position: absolute;
 
-    letter-spacing: 2px;
+            top: -80px;
 
-    margin-bottom: 8px;
-}
+            color: #d4af37;
 
-.detail p {
+            font-size: 30px;
 
-    font-family:
-        'Playfair Display',
-        serif;
+            opacity: .5;
 
-    color: #ddd;
+            filter:
+                drop-shadow(
+                    0 0 6px
+                    rgba(212,175,55,.5)
+                );
 
-    font-size: 18px;
+            animation:
+                fallingLeaf
+                linear
+                infinite;
+        }
 
-    line-height: 1.7;
-}
 
+        .leaf-a {
+            left: 8%;
+            animation-duration: 13s;
+        }
 
-/* =========================================================
-   WILL YOU JOIN US
-========================================================= */
+        .leaf-b {
+            left: 18%;
+            animation-duration: 17s;
+            animation-delay: 3s;
+        }
 
-.join {
+        .leaf-c {
+            left: 30%;
+            animation-duration: 14s;
+            animation-delay: 6s;
+        }
 
-    text-align: center;
-}
+        .leaf-d {
+            left: 42%;
+            animation-duration: 18s;
+            animation-delay: 2s;
+        }
 
-.confirm {
+        .leaf-e {
+            left: 55%;
+            animation-duration: 15s;
+            animation-delay: 5s;
+        }
 
-    padding:
-        15px 34px;
+        .leaf-f {
+            left: 67%;
+            animation-duration: 19s;
+            animation-delay: 1s;
+        }
 
-    border:
-        1px solid
-        var(--gold);
+        .leaf-g {
+            left: 77%;
+            animation-duration: 16s;
+            animation-delay: 4s;
+        }
 
-    cursor: pointer;
+        .leaf-h {
+            left: 87%;
+            animation-duration: 14s;
+            animation-delay: 8s;
+        }
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--light-gold),
-            var(--gold)
-        );
+        .leaf-i {
+            left: 35%;
+            animation-duration: 20s;
+            animation-delay: 9s;
+        }
 
-    color: #111;
+        .leaf-j {
+            left: 72%;
+            animation-duration: 21s;
+            animation-delay: 10s;
+        }
 
-    font-family:
-        'Cinzel',
-        serif;
 
-    font-weight: 700;
+        @keyframes fallingLeaf {
 
-    letter-spacing: 1.5px;
+            0% {
 
-    margin-top: 28px;
+                transform:
+                    translateY(-100px)
+                    translateX(0)
+                    rotate(0deg);
 
-    transition: 0.3s;
-}
+                opacity: 0;
+            }
 
-.confirm:hover {
+            10% {
 
-    transform:
-        translateY(-3px)
-        scale(1.04);
+                opacity: .55;
+            }
 
-    box-shadow:
-        0 8px 25px
-        rgba(212,175,55,0.4);
-}
+            50% {
 
-.confirmed {
+                transform:
+                    translateY(55vh)
+                    translateX(70px)
+                    rotate(180deg);
 
-    display: none;
+                opacity: .8;
+            }
 
-    color: var(--gold);
+            100% {
 
-    font-family:
-        'Great Vibes',
-        cursive;
+                transform:
+                    translateY(115vh)
+                    translateX(-80px)
+                    rotate(360deg);
 
-    font-size: 36px;
+                opacity: 0;
+            }
+        }
 
-    margin-top: 22px;
-}
 
-.confirmed.show {
+        /* =========================================
+           CONTENT
+        ========================================= */
 
-    display: block;
-}
+        .content {
 
+            position: relative;
 
-/* =========================================================
-   LETTERS
-========================================================= */
+            z-index: 10;
 
-.letter {
+            text-align: center;
+        }
 
-    max-width: 850px;
 
-    margin: 25px auto;
+        .invite-text {
 
-    padding: 35px;
+            font-family:
+                "Cinzel",
+                serif;
 
-    border-left:
-        2px solid
-        var(--gold);
+            font-size: 18px;
 
-    border-right:
-        1px solid
-        var(--silver);
+            letter-spacing: 5px;
 
-    background:
-        rgba(255,255,255,0.025);
-}
+            color: #e2c15d;
 
-.letter h3 {
+            margin-bottom: 20px;
 
-    font-family:
-        'Cinzel',
-        serif;
+            text-transform: uppercase;
+        }
 
-    color: var(--gold);
 
-    margin-bottom: 18px;
+        .department {
 
-    letter-spacing: 1.5px;
-}
+            font-family:
+                "Cinzel",
+                serif;
 
-.letter p {
+            font-size: 16px;
 
-    font-family:
-        'Playfair Display',
-        serif;
+            letter-spacing: 5px;
 
-    color: #ddd;
+            color: #e8dfc8;
 
-    font-size: 17px;
+            margin-bottom: 22px;
+        }
 
-    line-height: 1.9;
-}
 
+        /* =========================================
+           TITLE
+        ========================================= */
 
-/* =========================================================
-   LOVE LINE
-========================================================= */
+        .title {
 
-.love-line {
+            font-family:
+                "Great Vibes",
+                cursive;
 
-    text-align: center;
+            font-size:
+                clamp(80px, 13vw, 145px);
 
-    font-family:
-        'Great Vibes',
-        cursive;
+            line-height: .9;
 
-    color: var(--gold);
+            color: #e5bd58;
 
-    font-size:
-        clamp(
-            32px,
-            6vw,
-            55px
-        );
+            text-shadow:
 
-    line-height: 1.5;
+                0 0 4px #fff3b0,
 
-    margin: 50px auto;
-}
+                0 0 12px
+                rgba(212,175,55,.8),
 
-.love-line::before {
+                0 0 25px
+                rgba(212,175,55,.4);
 
-    content: "✦";
+            margin-bottom: 8px;
+        }
 
-    display: block;
 
-    color: var(--silver);
+        .year {
 
-    font-size: 25px;
+            font-family:
+                "Cinzel",
+                serif;
 
-    margin-bottom: 10px;
-}
+            font-size:
+                clamp(35px, 5vw, 60px);
 
-.love-line::after {
+            letter-spacing: 12px;
 
-    content: "✦";
+            color: #f0d77d;
 
-    display: block;
+            margin-left: 12px;
+        }
 
-    color: var(--silver);
 
-    font-size: 25px;
+        .event-name {
 
-    margin-top: 10px;
-}
+            font-family:
+                "Cinzel",
+                serif;
 
+            font-size:
+                clamp(25px, 4vw, 43px);
 
-/* =========================================================
-   FINAL SECTION
-========================================================= */
+            letter-spacing: 8px;
 
-.final {
+            color: #e7c566;
 
-    text-align: center;
+            margin-top: 25px;
 
-    padding:
-        40px 0 80px;
-}
+            margin-bottom: 28px;
+        }
 
-.final-title {
 
-    font-family:
-        'Great Vibes',
-        cursive;
+        /* =========================================
+           DIVIDER
+        ========================================= */
 
-    color: var(--gold);
+        .divider {
 
-    font-size:
-        clamp(
-            55px,
-            9vw,
-            90px
-        );
-}
+            width: 80%;
 
-.final p {
+            max-width: 650px;
 
-    font-family:
-        'Playfair Display',
-        serif;
+            height: 1px;
 
-    color: #ddd;
+            margin: 25px auto;
 
-    font-size: 19px;
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    #d4af37,
+                    transparent
+                );
 
-    line-height: 1.8;
-}
+            position: relative;
+        }
 
-.love {
 
-    font-family:
-        'Great Vibes',
-        cursive;
+        .divider::after {
 
-    color: var(--gold);
+            content: "♥";
 
-    font-size: 38px;
+            position: absolute;
 
-    margin-top: 25px;
-}
+            left: 50%;
 
+            top: 50%;
 
-/* =========================================================
-   FOOTER
-========================================================= */
+            transform:
+                translate(-50%, -50%);
 
-footer {
+            padding: 0 14px;
 
-    text-align: center;
+            background: #080706;
 
-    border-top:
-        1px solid
-        rgba(212,175,55,0.4);
+            color: #d4af37;
 
-    padding: 25px;
+            font-size: 18px;
+        }
 
-    color: #aaa;
 
-    letter-spacing: 1.5px;
+        /* =========================================
+           MESSAGE
+        ========================================= */
 
-    font-size: 12px;
-}
+        .message-box {
 
-footer span {
+            position: relative;
 
-    color: var(--gold);
-}
+            width: 90%;
 
+            max-width: 720px;
 
-/* =========================================================
-   MOBILE
-========================================================= */
+            margin: 35px auto;
 
-@media(max-width:650px) {
+            padding: 40px 35px;
 
-    .opening-card {
+            border:
+                1px solid
+                rgba(212,175,55,.75);
 
-        width: 90vw;
+            background:
+                rgba(0,0,0,.3);
+        }
 
-        height: 90vh;
-    }
 
-    .open-btn {
+        .quote-mark {
 
-        bottom: 22px;
+            position: absolute;
 
-        font-size: 11px;
+            font-size: 65px;
 
-        padding:
-            12px 20px;
-    }
+            color: #d4af37;
 
-    .content {
+            font-family:
+                Georgia,
+                serif;
 
-        padding:
-            55px 7%;
-    }
+            opacity: .8;
+        }
 
-    .dept {
 
-        letter-spacing: 3px;
+        .quote-left {
 
-        font-size: 11px;
-    }
+            top: -5px;
 
-    .year {
+            left: 20px;
+        }
 
-        font-size: 24px;
 
-        letter-spacing: 6px;
-    }
+        .quote-right {
 
-    .hero p,
-    .message p,
-    .letter p {
+            bottom: -35px;
 
-        font-size: 16px;
-    }
+            right: 20px;
+        }
 
-    .details {
 
-        grid-template-columns: 1fr;
-    }
+        .message {
 
-    .detail:first-child {
+            font-family:
+                "Playfair Display",
+                serif;
 
-        border-right: none;
+            font-size:
+                clamp(17px, 2.5vw, 24px);
 
-        border-bottom:
-            1px solid
-            rgba(212,175,55,0.4);
-    }
+            line-height: 1.8;
 
-    .message {
+            color: #eee8d9;
+        }
 
-        padding:
-            40px 20px;
-    }
 
-    .letter {
+        .message-script {
 
-        padding:
-            30px 20px;
-    }
+            display: block;
 
-    .fall-leaf {
+            margin-top: 15px;
 
-        font-size: 25px;
-    }
-}
+            font-family:
+                "Great Vibes",
+                cursive;
 
-</style>
+            font-size:
+                clamp(25px, 4vw, 42px);
+
+            color: #d8ae48;
+        }
+
+
+        /* =========================================
+           EVENT DETAILS
+        ========================================= */
+
+        .details {
+
+            width: 90%;
+
+            max-width: 800px;
+
+            margin: 40px auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            border:
+                1px solid
+                #b8902f;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            background:
+                rgba(10,9,7,.65);
+        }
+
+
+        .detail {
+
+            padding: 28px 15px;
+
+            border-right:
+                1px solid
+                rgba(212,175,55,.45);
+        }
+
+
+        .detail:last-child {
+
+            border-right: none;
+        }
+
+
+        .detail-icon {
+
+            font-size: 38px;
+
+            color: #d4af37;
+
+            margin-bottom: 10px;
+        }
+
+
+        .detail-title {
+
+            font-family:
+                "Cinzel",
+                serif;
+
+            font-size: 15px;
+
+            letter-spacing: 3px;
+
+            color: #e1c05c;
+
+            margin-bottom: 10px;
+        }
+
+
+        .detail-value {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 19px;
+
+            line-height: 1.6;
+
+            color: #f4ead0;
+        }
+
+
+        /* =========================================
+           EXTRA NOTE
+        ========================================= */
+
+        .note {
+
+            width: 85%;
+
+            max-width: 700px;
+
+            margin: 35px auto;
+
+            padding: 18px 25px;
+
+            border:
+                1px solid
+                rgba(212,175,55,.65);
+
+            border-radius: 40px;
+
+            color: #eee4c9;
+
+            font-size: 17px;
+
+            background:
+                rgba(212,175,55,.03);
+        }
+
+
+        .note span {
+
+            color: #d4af37;
+
+            margin-right: 8px;
+        }
+
+
+        /* =========================================
+           MBA
+        ========================================= */
+
+        .organised {
+
+            margin-top: 30px;
+
+            font-family:
+                "Cinzel",
+                serif;
+
+            font-size: 15px;
+
+            letter-spacing: 3px;
+
+            color: #d4af37;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           JOIN SECTION
+        ========================================= */
+
+        .join-section {
+
+            margin-top: 60px;
+
+            padding-bottom: 20px;
+        }
+
+
+        .join-title {
+
+            font-family:
+                "Cinzel",
+                serif;
+
+            font-size:
+                clamp(20px, 3vw, 30px);
+
+            letter-spacing: 4px;
+
+            color: #e3c35f;
+
+            margin-bottom: 15px;
+        }
+
+
+        .join-text {
+
+            max-width: 680px;
+
+            margin: auto;
+
+            color: #e9e1ce;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+        }
+
+
+        .confirmation-btn {
+
+            margin-top: 25px;
+
+            padding: 15px 35px;
+
+            border: 1px solid #e2c15d;
+
+            border-radius: 3px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e9cf75,
+                    #b8860b
+                );
+
+            color: #090806;
+
+            font-family:
+                "Cinzel",
+                serif;
+
+            font-weight: 700;
+
+            font-size: 14px;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition:
+                .35s ease;
+
+            box-shadow:
+                0 0 18px
+                rgba(212,175,55,.25);
+        }
+
+
+        .confirmation-btn:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 0 30px
+                rgba(212,175,55,.65);
+        }
+
+
+        .confirmation-message {
+
+            display: none;
+
+            margin-top: 20px;
+
+            font-family:
+                "Great Vibes",
+                cursive;
+
+            font-size: 32px;
+
+            color: #e0bd5b;
+
+            animation:
+                confirmationAppear
+                .7s ease;
+        }
+
+
+        .confirmation-message.show {
+
+            display: block;
+        }
+
+
+        @keyframes confirmationAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(15px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .footer {
+
+            margin-top: 55px;
+
+            padding-top: 25px;
+
+            border-top:
+                1px solid
+                rgba(212,175,55,.35);
+
+            font-family:
+                "Cinzel",
+                serif;
+
+            letter-spacing: 3px;
+
+            color: #bfa15b;
+
+            font-size: 14px;
+        }
+
+
+        .footer-script {
+
+            display: block;
+
+            margin-top: 15px;
+
+            font-family:
+                "Great Vibes",
+                cursive;
+
+            font-size: 34px;
+
+            color: #d4af37;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .main-page {
+
+                padding: 15px 8px;
+            }
+
+
+            .invitation {
+
+                padding:
+                    55px
+                    20px
+                    35px;
+            }
+
+
+            .invitation::before {
+
+                inset: 10px;
+            }
+
+
+            .invitation::after {
+
+                inset: 17px;
+            }
+
+
+            .corner {
+
+                transform:
+                    scale(.7);
+            }
+
+
+            .corner-tr {
+
+                transform:
+                    rotate(90deg)
+                    scale(.7);
+            }
+
+
+            .corner-br {
+
+                transform:
+                    rotate(180deg)
+                    scale(.7);
+            }
+
+
+            .corner-bl {
+
+                transform:
+                    rotate(270deg)
+                    scale(.7);
+            }
+
+
+            .left-leaf {
+
+                left: 15px;
+            }
+
+
+            .right-leaf {
+
+                right: 15px;
+            }
+
+
+            .border-leaf {
+
+                font-size: 29px;
+            }
+
+
+            .invite-text {
+
+                font-size: 12px;
+
+                letter-spacing: 3px;
+            }
+
+
+            .department {
+
+                font-size: 12px;
+
+                letter-spacing: 3px;
+            }
+
+
+            .title {
+
+                font-size:
+                    clamp(65px, 20vw, 100px);
+            }
+
+
+            .year {
+
+                font-size: 35px;
+
+                letter-spacing: 8px;
+            }
+
+
+            .event-name {
+
+                font-size: 22px;
+
+                letter-spacing: 4px;
+            }
+
+
+            .message-box {
+
+                width: 96%;
+
+                padding:
+                    35px
+                    20px;
+            }
+
+
+            .message {
+
+                font-size: 16px;
+
+                line-height: 1.7;
+            }
+
+
+            .details {
+
+                width: 96%;
+
+                grid-template-columns: 1fr;
+
+                border-radius: 15px;
+            }
+
+
+            .detail {
+
+                border-right: none;
+
+                border-bottom:
+                    1px solid
+                    rgba(212,175,55,.35);
+            }
+
+
+            .detail:last-child {
+
+                border-bottom: none;
+            }
+
+
+            .note {
+
+                width: 96%;
+
+                font-size: 15px;
+            }
+
+
+            .join-text {
+
+                font-size: 16px;
+            }
+
+
+            .open-btn {
+
+                bottom: 25px;
+
+                padding:
+                    13px 20px;
+
+                font-size: 12px;
+            }
+
+        }
+
+
+        /* =========================================
+           SMALL MOBILE
+        ========================================= */
+
+        @media (max-width: 400px) {
+
+            .opening {
+
+                padding: 8px;
+            }
+
+
+            .opening-card {
+
+                width: 96vw;
+
+                height: 92vh;
+            }
+
+
+            .invitation {
+
+                padding:
+                    48px
+                    15px
+                    30px;
+            }
+
+
+            .title {
+
+                font-size: 65px;
+            }
+
+
+            .year {
+
+                font-size: 30px;
+            }
+
+
+            .event-name {
+
+                font-size: 19px;
+            }
+
+
+            .detail-value {
+
+                font-size: 16px;
+            }
+
+
+            .message-script {
+
+                font-size: 28px;
+            }
+
+
+            .footer-script {
+
+                font-size: 29px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ========================================================
-     OPENING PAGE
-========================================================= -->
+    <!-- =========================================
+         OPENING PAGE
+    ========================================= -->
 
-<div
-    class="opening"
-    id="opening">
+    <div class="opening" id="opening">
 
-    <div class="opening-card">
+        <div class="opening-card">
 
-        <button
-            class="open-btn"
-            onclick="openInvitation()">
+            <!--
+                IMPORTANT:
+                Keep card.jpeg in the same folder
+                as this index.html file.
+            -->
 
-            ✦ OPEN INVITATION ✦
+            <img
+                src="card.jpeg"
+                alt="Vidaaya 2026 Invitation"
+                class="opening-image"
+            >
 
-        </button>
+            <div class="opening-overlay"></div>
+
+
+            <button
+                class="open-btn"
+                onclick="openInvitation()">
+
+                ✦ OPEN INVITATION ✦
+
+            </button>
+
+        </div>
 
     </div>
 
-</div>
+
+
+    <!-- =========================================
+         MAIN INVITATION
+    ========================================= -->
+
+    <main
+        class="main-page"
+        id="mainPage">
+
+
+        <div class="wrapper">
+
+
+            <div class="invitation">
+
+
+                <!-- =================================
+                     DECORATIVE CORNERS
+                ================================= -->
+
+                <div class="corner corner-tl"></div>
+
+                <div class="corner corner-tr"></div>
+
+                <div class="corner corner-br"></div>
+
+                <div class="corner corner-bl"></div>
 
 
 
-<!-- ========================================================
-     MAIN INVITATION
-========================================================= -->
+                <!-- =================================
+                     GOLD LEAF BORDER
+                ================================= -->
 
-<main
-    class="main"
-    id="main">
-
-    <div class="wrapper">
+                <div
+                    class="leaf-border"
+                    aria-hidden="true">
 
 
-        <!-- ==================================================
-             ANIMATED LEAVES
-        =================================================== -->
+                    <!-- LEFT -->
 
-        <div
-            class="animated-leaves"
-            aria-hidden="true">
+                    <span class="border-leaf left-leaf l1">
+                        ❧
+                    </span>
 
-            <span class="fall-leaf leaf-a">❧</span>
+                    <span class="border-leaf left-leaf l2">
+                        ❧
+                    </span>
 
-            <span class="fall-leaf leaf-b">❧</span>
+                    <span class="border-leaf left-leaf l3">
+                        ❧
+                    </span>
 
-            <span class="fall-leaf leaf-c">❧</span>
+                    <span class="border-leaf left-leaf l4">
+                        ❧
+                    </span>
 
-            <span class="fall-leaf leaf-d">❧</span>
-
-            <span class="fall-leaf leaf-e">❧</span>
-
-            <span class="fall-leaf leaf-f">❧</span>
-
-            <span class="fall-leaf leaf-g">❧</span>
-
-            <span class="fall-leaf leaf-h">❧</span>
-
-            <span class="fall-leaf leaf-i">❧</span>
-
-            <span class="fall-leaf leaf-j">❧</span>
-
-        </div>
+                    <span class="border-leaf left-leaf l5">
+                        ❧
+                    </span>
 
 
-        <!-- SIDE DECORATION -->
+                    <!-- RIGHT -->
 
-        <div class="side-leaf side-left">
-            ❧
-        </div>
+                    <span class="border-leaf right-leaf r1">
+                        ❧
+                    </span>
 
-        <div class="side-leaf side-right">
-            ❧
-        </div>
+                    <span class="border-leaf right-leaf r2">
+                        ❧
+                    </span>
+
+                    <span class="border-leaf right-leaf r3">
+                        ❧
+                    </span>
+
+                    <span class="border-leaf right-leaf r4">
+                        ❧
+                    </span>
+
+                    <span class="border-leaf right-leaf r5">
+                        ❧
+                    </span>
+
+
+                    <!-- TOP -->
+
+                    <span class="border-leaf top-leaf t1">
+                        ❧
+                    </span>
+
+                    <span class="border-leaf top-leaf t2">
+                        ❧
+                    </span>
+
+                    <span class="border-leaf top-leaf t3">
+                        ❧
+                    </span>
+
+
+                    <!-- BOTTOM -->
+
+                    <span class="border-leaf bottom-leaf b1">
+                        ❧
+                    </span>
+
+                    <span class="border-leaf bottom-leaf b2">
+                        ❧
+                    </span>
+
+                    <span class="border-leaf bottom-leaf b3">
+                        ❧
+                    </span>
+
+                </div>
 
 
 
-        <div class="content">
+                <!-- =================================
+                     FALLING LEAVES
+                ================================= -->
+
+                <div
+                    class="animated-leaves"
+                    aria-hidden="true">
 
 
-            <!-- ==================================================
-                 HERO
-            =================================================== -->
+                    <span class="fall-leaf leaf-a">
+                        ❧
+                    </span>
 
-            <section class="hero">
+                    <span class="fall-leaf leaf-b">
+                        ❧
+                    </span>
 
-                <div>
+                    <span class="fall-leaf leaf-c">
+                        ❧
+                    </span>
 
-                    <div class="dept">
+                    <span class="fall-leaf leaf-d">
+                        ❧
+                    </span>
+
+                    <span class="fall-leaf leaf-e">
+                        ❧
+                    </span>
+
+                    <span class="fall-leaf leaf-f">
+                        ❧
+                    </span>
+
+                    <span class="fall-leaf leaf-g">
+                        ❧
+                    </span>
+
+                    <span class="fall-leaf leaf-h">
+                        ❧
+                    </span>
+
+                    <span class="fall-leaf leaf-i">
+                        ❧
+                    </span>
+
+                    <span class="fall-leaf leaf-j">
+                        ❧
+                    </span>
+
+                </div>
+
+
+
+                <!-- =================================
+                     CONTENT
+                ================================= -->
+
+                <div class="content">
+
+
+                    <!-- Invitation -->
+
+                    <div class="invite-text">
+
+                        YOU ARE CORDIALLY INVITED TO
+
+                    </div>
+
+
+                    <!-- Department -->
+
+                    <div class="department">
 
                         MBA DEPARTMENT
 
                     </div>
 
 
-                    <div class="title">
+                    <!-- Main Title -->
+
+                    <h1 class="title">
 
                         Vidaaya
 
-                    </div>
+                    </h1>
 
 
                     <div class="year">
@@ -1291,485 +1954,427 @@ footer span {
                     </div>
 
 
-                    <div class="farewell">
+                    <div class="event-name">
 
                         FAREWELL PARTY
 
                     </div>
 
 
-                    <div class="line"></div>
 
+                    <!-- Divider -->
 
-                    <p>
-
-                        A beautiful journey deserves
-                        a beautiful goodbye.
-
-                        <br><br>
-
-                        Join us as we celebrate the
-                        memories, friendships,
-                        laughter and achievements
-                        of our beloved seniors.
-
-                    </p>
-
-                </div>
-
-            </section>
+                    <div class="divider"></div>
 
 
 
-            <!-- ==================================================
-                 INVITATION MESSAGE
-            =================================================== -->
+                    <!-- =================================
+                         MESSAGE
+                    ================================= -->
 
-            <section class="section">
-
-                <h2 class="heading">
-
-                    YOU ARE CORDIALLY INVITED
-
-                </h2>
+                    <section class="message-box">
 
 
-                <div class="subline"></div>
+                        <span
+                            class="quote-mark quote-left">
+
+                            “
+
+                        </span>
 
 
-                <div class="message">
+                        <p class="message">
 
-                    <p>
+                            Some people don't just pass
+                            through your life —
+                            they shape it.
 
-                        Some people just pass through
-                        our lives, and some leave
-                        footprints on our hearts.
+                            <br><br>
 
-                        You're among those special
-                        people who have made our
-                        journey more meaningful.
+                            Dear Seniors, you walked this
+                            path first — through deadlines,
+                            presentations, interviews, and
+                            self-doubt — and showed us it's
+                            possible to come out stronger
+                            on the other side.
 
-                        <br><br>
+                            <br><br>
 
-                        Thank you for the guidance,
-                        the laughter, and the memories
-                        we'll carry forever.
+                            Thank you for the guidance when
+                            we were lost, the laughter that
+                            made hard days easier, and the
+                            example you set without even
+                            trying.
 
-                        <br><br>
+                            <br><br>
 
-                        This isn't goodbye,
-                        it's just
-                        <strong>
-                            see you later.
-                        </strong>
+                            You're leaving this campus,
+                            but not our memories.
 
-                    </p>
+                            <span class="message-script">
 
+                                With Love & Gratitude
 
-                    <div class="signature">
-
-                        With Love,<br>
-                        Your Juniors
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- ==================================================
-                 EVENT DETAILS
-            =================================================== -->
-
-            <section class="section">
-
-                <h2 class="heading">
-
-                    EVENT DETAILS
-
-                </h2>
-
-
-                <div class="subline"></div>
-
-
-                <div class="details">
-
-
-                    <div class="detail">
-
-                        <div class="icon">
-
-                            📅
-
-                        </div>
-
-                        <h3>
-
-                            DATE
-
-                        </h3>
-
-                        <p>
-
-                            30th August
-
-                            <br>
-
-                            2026
+                            </span>
 
                         </p>
 
-                    </div>
+
+                        <span
+                            class="quote-mark quote-right">
+
+                            ”
+
+                        </span>
+
+                    </section>
 
 
 
-                    <div class="detail">
+                    <!-- =================================
+                         EVENT DETAILS
+                    ================================= -->
 
-                        <div class="icon">
+                    <section class="details">
 
-                            🕕
+
+                        <!-- DATE -->
+
+                        <div class="detail">
+
+
+                            <div class="detail-icon">
+
+                                📅
+
+                            </div>
+
+
+                            <div class="detail-title">
+
+                                DATE
+
+                            </div>
+
+
+                            <div class="detail-value">
+
+                                30th August
+                                <br>
+                                2026
+
+                            </div>
 
                         </div>
 
-                        <h3>
 
-                            TIME
 
-                        </h3>
+                        <!-- TIME -->
 
-                        <p>
+                        <div class="detail">
 
-                            Evening
 
-                            <br>
+                            <div class="detail-icon">
 
-                            6:00 PM
+                                🕕 
+
+                            </div>
+
+
+                            <div class="detail-title">
+
+                                TIME
+
+                            </div>
+
+
+                            <div class="detail-value">
+
+                                Evening
+                                <br>
+                                6:00 PM
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- ORGANIZED BY -->
+
+                        <div class="detail">
+
+
+                            <div class="detail-icon">
+
+                                ♡
+
+                            </div>
+
+
+                            <div class="detail-title">
+
+                                ORGANIZED BY
+
+                            </div>
+
+
+                            <div class="detail-value">
+
+                                MBA
+                                <br>
+                                Students
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- =================================
+                         NOTE
+                    ================================= -->
+
+                    <div class="note">
+
+                        <span>●</span>
+
+                        Advised to get one extra pair
+                        of clothes.
+
+                    </div>
+
+
+
+                    <!-- =================================
+                         JOIN MESSAGE
+                    ================================= -->
+
+                    <section class="join-section">
+
+
+                        <h2 class="join-title">
+
+                            WILL YOU JOIN US?
+
+                        </h2>
+
+
+                        <p class="join-text">
+
+                            Before we say goodbye to this
+                            chapter, let's celebrate
+                            everything that made these
+                            memories special —
+                            together, one final time.
 
                         </p>
 
-                    </div>
+
+                        <button
+                            class="confirmation-btn"
+                            onclick="confirmAttendance()">
+
+                            YES, I'LL BE THERE
+
+                        </button>
+
+
+                        <div
+                            class="confirmation-message"
+                            id="confirmationMessage">
+
+                            We can't wait to celebrate
+                            with you! ♥
+
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- =================================
+                         FOOTER
+                    ================================= -->
+
+                    <footer class="footer">
+
+                        Chetan Business School
+
+                        <span class="footer-script">
+
+                            Celebrate memories.
+                            Cherish friendships.
+                            Embrace the future.
+
+                        </span>
+
+                    </footer>
 
 
                 </div>
 
-            </section>
-
-
-
-            <!-- ==================================================
-                 CONFIRMATION
-            =================================================== -->
-
-            <section
-                class="section join">
-
-
-                <h2 class="heading">
-
-                    WILL YOU JOIN US?
-
-                </h2>
-
-
-                <div class="subline"></div>
-
-
-                <div class="message">
-
-
-                    <p>
-
-                        Before we say goodbye to this
-                        chapter, let's celebrate
-                        everything that made our
-                        journey special — together,
-                        one final time.
-
-                    </p>
-
-
-                    <button
-                        class="confirm"
-                        id="confirmBtn"
-                        onclick="confirmAttendance()">
-
-                        YES, I'LL BE THERE! ✨
-
-                    </button>
-
-
-                    <div
-                        class="confirmed"
-                        id="confirmed">
-
-                        We can't wait to celebrate
-                        with you! ❤️
-
-                    </div>
-
-
-                </div>
-
-            </section>
-
-
-
-            <!-- ==================================================
-                 LOVE & GRATITUDE
-            =================================================== -->
-
-            <section class="section">
-
-
-                <h2 class="heading">
-
-                    WITH LOVE & GRATITUDE
-
-                </h2>
-
-
-                <div class="subline"></div>
-
-
-                <div class="letter">
-
-
-                    <h3>
-
-                        SOME PEOPLE DON'T JUST PASS
-                        THROUGH YOUR LIFE —
-                        THEY SHAPE IT.
-
-                    </h3>
-
-
-                    <p>
-
-                        Dear Seniors,
-
-                        <br><br>
-
-                        You walked this path first —
-                        through deadlines, presentations,
-                        interviews, challenges and
-                        self-doubt — and showed us
-                        it's possible to come out
-                        stronger on the other side.
-
-                        <br><br>
-
-                        Thank you for the guidance
-                        when we were lost, the laughter
-                        that made hard days easier,
-                        and the example you set
-                        without even trying.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="letter">
-
-
-                    <h3>
-
-                        UNTIL WE MEET AGAIN...
-
-                    </h3>
-
-
-                    <p>
-
-                        Some people just pass through
-                        our lives, and some leave
-                        footprints on our hearts.
-
-                        <br><br>
-
-                        You're leaving this campus,
-                        but not our memories.
-
-                        <br><br>
-
-                        As you step into new beginnings
-                        and new opportunities, carry
-                        the same fire that got you
-                        through this campus.
-
-                        <br><br>
-
-                        The world is lucky to have
-                        what you've become.
-
-                        Go build the future you've
-                        worked so hard for —
-                        we'll be cheering, always.
-
-                    </p>
-
-                </div>
-
-
-
-                <!-- REPLACEMENT FOR ONE LAST PAGE -->
-
-                <div class="love-line">
-
-                    With Love, Gratitude &
-                    Memories That Last Forever.
-
-                </div>
-
-
-            </section>
-
-
-
-            <!-- ==================================================
-                 FINAL MESSAGE
-            =================================================== -->
-
-            <section class="final">
-
-
-                <div class="final-title">
-
-                    Until We Meet Again...
-
-                </div>
-
-
-                <div class="line"></div>
-
-
-                <p>
-
-                    One chapter ends,
-                    another beautiful chapter begins.
-
-                    <br><br>
-
-                    May your future be filled with
-                    success, happiness and endless
-                    possibilities.
-
-                    <br><br>
-
-                    Thank you for being a wonderful
-                    part of our journey.
-
-                </p>
-
-
-                <div class="love">
-
-                    With Love, Pride & Gratitude ❤️
-
-                    <br>
-
-                    Your Juniors
-
-                </div>
-
-
-            </section>
-
+            </div>
 
         </div>
 
-
-
-        <!-- ==================================================
-             FOOTER
-        =================================================== -->
-
-        <footer>
-
-            <span>
-                VIDAAYA 2026
-            </span>
-
-            &nbsp; | &nbsp;
-
-            MBA DEPARTMENT
-
-            &nbsp; | &nbsp;
-
-            CHETAN BUSINESS SCHOOL
-
-        </footer>
-
-
-    </div>
-
-</main>
+    </main>
 
 
 
-<script>
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
 
-/* =========================================================
-   OPEN INVITATION
-========================================================= */
-
-function openInvitation() {
-
-    const opening =
-        document.getElementById("opening");
-
-    const main =
-        document.getElementById("main");
+    <script>
 
 
-    opening.classList.add("hide");
+        /* =====================================
+           OPEN INVITATION
+        ===================================== */
 
-    main.classList.add("show");
+        function openInvitation() {
 
+            const opening =
+                document.getElementById("opening");
 
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
-
-    });
-
-}
+            const mainPage =
+                document.getElementById("mainPage");
 
 
-/* =========================================================
-   CONFIRM ATTENDANCE
-========================================================= */
-
-function confirmAttendance() {
-
-    const message =
-        document.getElementById(
-            "confirmed"
-        );
-
-    const button =
-        document.getElementById(
-            "confirmBtn"
-        );
+            opening.classList.add("hide");
 
 
-    message.classList.add("show");
+            setTimeout(function () {
+
+                mainPage.classList.add("show");
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }, 700);
+
+        }
 
 
-    button.innerHTML =
-        "✓ CONFIRMED";
 
-    button.disabled = true;
+        /* =====================================
+           CONFIRM ATTENDANCE
+        ===================================== */
 
-}
+        function confirmAttendance() {
 
-</script>
+            const message =
+                document.getElementById(
+                    "confirmationMessage"
+                );
+
+
+            message.classList.add("show");
+
+
+            /*
+                Small celebration effect
+            */
+
+            createGoldParticles();
+
+        }
+
+
+
+        /* =====================================
+           GOLD PARTICLES
+        ===================================== */
+
+        function createGoldParticles() {
+
+            for (let i = 0; i < 25; i++) {
+
+                const particle =
+                    document.createElement("span");
+
+
+                particle.innerHTML = "✦";
+
+
+                particle.style.position =
+                    "fixed";
+
+                particle.style.left =
+                    Math.random() * 100 + "%";
+
+                particle.style.top =
+                    "70%";
+
+                particle.style.zIndex =
+                    "10000";
+
+                particle.style.color =
+                    "#d4af37";
+
+                particle.style.fontSize =
+                    (10 + Math.random() * 15) + "px";
+
+                particle.style.pointerEvents =
+                    "none";
+
+
+                particle.animate(
+
+                    [
+                        {
+                            transform:
+                                "translateY(0) scale(1)",
+
+                            opacity: 1
+                        },
+
+                        {
+                            transform:
+                                "translateY(-250px) translateX(" +
+                                ((Math.random() - .5) * 200) +
+                                "px) scale(0)",
+
+                            opacity: 0
+                        }
+                    ],
+
+                    {
+                        duration:
+                            1200 +
+                            Math.random() * 1000,
+
+                        easing:
+                            "ease-out"
+                    }
+
+                );
+
+
+                document.body.appendChild(
+                    particle
+                );
+
+
+                setTimeout(
+                    () => particle.remove(),
+                    2300
+                );
+
+            }
+
+        }
+
+
+    </script>
+
 
 </body>
+
 </html>
