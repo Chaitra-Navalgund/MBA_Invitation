@@ -1,1852 +1,1775 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Vidaaya 2026 | Farewell Party</title>
+<title>Vidaaya 2026 | Farewell Party</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap"
-          rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <style>
+<style>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* =========================================================
+   RESET
+========================================================= */
 
-        html {
-            scroll-behavior: smooth;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Poppins', sans-serif;
+html {
+    scroll-behavior: smooth;
+}
 
-            background:
-                radial-gradient(
-                    circle at center,
-                    #171717,
-                    #050505 75%
-                );
+body {
+    background: #050505;
+    color: #eeeeee;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
 
-            color: #f5f5f5;
+:root {
+    --gold: #d4af37;
+    --light-gold: #f5df9a;
+    --dark-gold: #8d691d;
+    --silver: #d9d9d9;
+    --black: #050505;
+}
 
-            overflow-x: hidden;
-        }
 
-        :root {
-            --gold: #d4af37;
-            --light-gold: #f5df9a;
-            --dark-gold: #8c681d;
+/* =========================================================
+   OPENING PAGE
+========================================================= */
 
-            --silver: #d9d9d9;
+.opening {
+    position: fixed;
+    inset: 0;
 
-            --black: #050505;
-        }
+    z-index: 9999;
 
+    background: #050505;
 
-        /* =====================================================
-           OPENING PAGE
-        ===================================================== */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        .opening {
-            position: fixed;
-            inset: 0;
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
 
-            z-index: 9999;
+.opening.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
 
-            background: #050505;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+/* YOUR UPLOADED IMAGE */
 
-            transition:
-                opacity 1s ease,
-                visibility 1s ease;
-        }
+.opening-card {
 
-        .opening.hide {
-            opacity: 0;
-            visibility: hidden;
-        }
+    width: min(92vw, 620px);
 
-        /*
-        YOUR UPLOADED IMAGE IS USED HERE
-        Make sure card.jpeg is beside index.html
-        */
+    height: min(92vh, 900px);
 
-        .opening-card {
-            width: min(92vw, 600px);
+    background-image:
+        url("./card.jpeg");
 
-            aspect-ratio: 1024 / 1536;
+    background-size: cover;
 
-            background-image:
-                linear-gradient(
-                    rgba(0,0,0,0.05),
-                    rgba(0,0,0,0.05)
-                ),
-                url("card.jpeg");
+    background-position: center;
 
-            background-size: cover;
-            background-position: center;
+    position: relative;
 
-            position: relative;
+    border: 2px solid var(--gold);
 
-            border: 2px solid var(--gold);
+    box-shadow:
 
-            box-shadow:
-                0 0 0 5px #080808,
-                0 0 0 7px var(--gold),
-                0 0 50px rgba(212,175,55,0.35);
+        0 0 0 5px #050505,
 
-            overflow: hidden;
+        0 0 0 7px var(--gold),
 
-            animation: openingAppear 1.5s ease;
-        }
+        0 0 45px
+        rgba(212,175,55,0.4);
 
-        @keyframes openingAppear {
-            from {
-                opacity: 0;
-                transform: scale(0.92);
-            }
+    overflow: hidden;
+}
 
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
 
-        /*
-        Dark overlay at bottom so button remains readable
-        */
+/* Dark bottom overlay */
 
-        .opening-overlay {
-            position: absolute;
-            inset: 0;
+.opening-card::after {
 
-            background:
-                linear-gradient(
-                    to top,
-                    rgba(0,0,0,0.88) 0%,
-                    rgba(0,0,0,0.15) 35%,
-                    transparent 60%
-                );
-        }
+    content: "";
 
-        .open-container {
-            position: absolute;
+    position: absolute;
 
-            bottom: 45px;
+    inset: 0;
 
-            left: 0;
-            right: 0;
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.9),
+            rgba(0,0,0,0.05) 45%
+        );
+}
 
-            text-align: center;
 
-            z-index: 2;
-        }
+/* OPEN BUTTON */
 
-        .open-btn {
-            padding: 15px 35px;
+.open-btn {
 
-            border: 1px solid var(--gold);
+    position: absolute;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--light-gold),
-                    var(--gold),
-                    var(--dark-gold)
-                );
+    z-index: 3;
 
-            color: #111;
+    bottom: 35px;
 
-            font-family: 'Cinzel', serif;
+    left: 50%;
 
-            font-weight: 600;
+    transform: translateX(-50%);
 
-            letter-spacing: 2px;
+    padding: 15px 32px;
 
-            cursor: pointer;
+    border: 1px solid var(--gold);
 
-            transition: 0.4s;
+    background:
+        linear-gradient(
+            135deg,
+            var(--light-gold),
+            var(--gold)
+        );
 
-            box-shadow:
-                0 0 25px rgba(212,175,55,0.3);
-        }
+    color: #111;
 
-        .open-btn:hover {
-            transform: scale(1.06);
+    font-family: 'Cinzel', serif;
 
-            box-shadow:
-                0 0 40px rgba(212,175,55,0.6);
-        }
+    font-weight: 700;
 
+    letter-spacing: 2px;
 
-        /* =====================================================
-           MAIN
-        ===================================================== */
+    cursor: pointer;
 
-        .main {
-            display: none;
+    white-space: nowrap;
 
-            min-height: 100vh;
+    transition: 0.4s;
+}
 
-            position: relative;
-        }
+.open-btn:hover {
 
-        .main.show {
-            display: block;
+    transform:
+        translateX(-50%)
+        scale(1.06);
 
-            animation: pageReveal 1.2s ease;
-        }
+    box-shadow:
+        0 0 30px
+        rgba(212,175,55,0.5);
+}
 
-        @keyframes pageReveal {
-            from {
-                opacity: 0;
-            }
 
-            to {
-                opacity: 1;
-            }
-        }
+/* =========================================================
+   MAIN INVITATION
+========================================================= */
 
+.main {
+    display: none;
+}
 
-        /* =====================================================
-           ENTIRE INVITATION CARD
-        ===================================================== */
+.main.show {
 
-        /*
-        This creates the gold frame around the whole invitation.
-        */
+    display: block;
 
-        .invitation-wrapper {
+    animation:
+        pageReveal 1s ease;
+}
 
-            width: min(1100px, 94%);
+@keyframes pageReveal {
 
-            margin: 30px auto;
+    from {
+        opacity: 0;
+    }
 
-            position: relative;
+    to {
+        opacity: 1;
+    }
+}
 
-            background:
-                radial-gradient(
-                    circle at top,
-                    #171717,
-                    #050505 65%
-                );
 
-            border: 2px solid var(--gold);
+/* =========================================================
+   MAIN CARD
+========================================================= */
 
-            box-shadow:
-                0 0 0 6px #080808,
-                0 0 0 8px var(--gold),
-                0 0 50px rgba(212,175,55,0.20);
+.wrapper {
 
-            overflow: hidden;
-        }
+    width: min(1050px,94%);
 
+    margin: 30px auto;
 
-        /* =====================================================
-           INNER GOLD BORDER
-        ===================================================== */
+    position: relative;
 
-        .invitation-wrapper::before {
+    background:
+        radial-gradient(
+            circle at top,
+            #191919,
+            #050505 70%
+        );
 
-            content: "";
+    border: 2px solid var(--gold);
 
-            position: absolute;
+    box-shadow:
 
-            inset: 13px;
+        0 0 0 6px #050505,
 
-            border: 1px solid
-                rgba(212,175,55,0.65);
+        0 0 0 8px var(--gold),
 
-            pointer-events: none;
+        0 0 50px
+        rgba(212,175,55,0.25);
 
-            z-index: 10;
-        }
+    overflow: hidden;
+}
 
 
-        /* =====================================================
-           DECORATIVE CORNERS
-        ===================================================== */
+/* INNER GOLD BORDER */
 
-        .corner {
+.wrapper::before {
 
-            position: absolute;
+    content: "";
 
-            width: 100px;
-            height: 100px;
+    position: absolute;
 
-            z-index: 11;
+    inset: 13px;
 
-            pointer-events: none;
+    border:
+        1px solid
+        rgba(212,175,55,0.7);
 
-            opacity: 0.9;
-        }
+    pointer-events: none;
 
-        .corner::before,
-        .corner::after {
+    z-index: 10;
+}
 
-            content: "";
 
-            position: absolute;
+/* =========================================================
+   ANIMATED LEAVES
+========================================================= */
 
-            background: var(--gold);
-        }
+.animated-leaves {
 
+    position: absolute;
 
-        /* TOP LEFT */
+    inset: 0;
 
-        .top-left {
-            top: 15px;
-            left: 15px;
-        }
+    overflow: hidden;
 
-        .top-left::before {
-            width: 65px;
-            height: 1px;
+    pointer-events: none;
 
-            top: 15px;
-            left: 0;
+    z-index: 4;
+}
 
-            transform: rotate(45deg);
-        }
 
-        .top-left::after {
-            width: 1px;
-            height: 65px;
+/* Individual leaves */
 
-            top: 0;
-            left: 15px;
+.fall-leaf {
 
-            transform: rotate(45deg);
-        }
+    position: absolute;
 
+    top: -10%;
 
-        /* TOP RIGHT */
+    color: var(--gold);
 
-        .top-right {
-            top: 15px;
-            right: 15px;
-        }
+    font-family: Georgia, serif;
 
-        .top-right::before {
-            width: 65px;
-            height: 1px;
+    font-size: 38px;
 
-            top: 15px;
-            right: 0;
+    opacity: 0;
 
-            transform: rotate(-45deg);
-        }
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(212,175,55,0.6)
+        );
 
-        .top-right::after {
-            width: 1px;
-            height: 65px;
+    animation:
+        leafFall linear infinite;
 
-            top: 0;
-            right: 15px;
+    will-change:
+        transform,
+        opacity;
+}
 
-            transform: rotate(-45deg);
-        }
 
+/* Different positions */
 
-        /* BOTTOM LEFT */
+.leaf-a {
+    left: 5%;
+    animation-duration: 14s;
+    animation-delay: 1s;
+    font-size: 32px;
+}
 
-        .bottom-left {
-            bottom: 15px;
-            left: 15px;
-        }
+.leaf-b {
+    left: 15%;
+    animation-duration: 18s;
+    animation-delay: 5s;
+    font-size: 26px;
+}
 
-        .bottom-left::before {
-            width: 65px;
-            height: 1px;
+.leaf-c {
+    left: 27%;
+    animation-duration: 15s;
+    animation-delay: 8s;
+    font-size: 40px;
+}
 
-            bottom: 15px;
-            left: 0;
+.leaf-d {
+    left: 39%;
+    animation-duration: 20s;
+    animation-delay: 2s;
+    font-size: 28px;
+}
 
-            transform: rotate(-45deg);
-        }
+.leaf-e {
+    left: 51%;
+    animation-duration: 16s;
+    animation-delay: 10s;
+    font-size: 36px;
+}
 
-        .bottom-left::after {
-            width: 1px;
-            height: 65px;
+.leaf-f {
+    left: 63%;
+    animation-duration: 19s;
+    animation-delay: 4s;
+    font-size: 30px;
+}
 
-            bottom: 0;
-            left: 15px;
+.leaf-g {
+    left: 75%;
+    animation-duration: 14s;
+    animation-delay: 7s;
+    font-size: 42px;
+}
 
-            transform: rotate(-45deg);
-        }
+.leaf-h {
+    left: 87%;
+    animation-duration: 21s;
+    animation-delay: 12s;
+    font-size: 27px;
+}
 
+.leaf-i {
+    left: 22%;
+    animation-duration: 22s;
+    animation-delay: 14s;
+    font-size: 25px;
+}
 
-        /* BOTTOM RIGHT */
+.leaf-j {
+    left: 70%;
+    animation-duration: 17s;
+    animation-delay: 16s;
+    font-size: 34px;
+}
 
-        .bottom-right {
-            bottom: 15px;
-            right: 15px;
-        }
 
-        .bottom-right::before {
-            width: 65px;
-            height: 1px;
+/* LEAF FALLING ANIMATION */
 
-            bottom: 15px;
-            right: 0;
+@keyframes leafFall {
 
-            transform: rotate(45deg);
-        }
+    0% {
 
-        .bottom-right::after {
-            width: 1px;
-            height: 65px;
+        transform:
+            translate3d(
+                0,
+                -10vh,
+                0
+            )
+            rotate(0deg)
+            scale(0.7);
 
-            bottom: 0;
-            right: 15px;
+        opacity: 0;
+    }
 
-            transform: rotate(45deg);
-        }
+    8% {
 
+        opacity: 0.75;
+    }
 
-        /* =====================================================
-           GOLD LEAF DECORATION
-        ===================================================== */
+    25% {
 
-        .leaf-decoration {
+        transform:
+            translate3d(
+                50px,
+                25vh,
+                0
+            )
+            rotate(80deg)
+            scale(1);
+    }
 
-            position: absolute;
+    50% {
 
-            color: var(--gold);
+        transform:
+            translate3d(
+                -55px,
+                50vh,
+                0
+            )
+            rotate(180deg)
+            scale(0.9);
 
-            font-size: 35px;
+        opacity: 0.6;
+    }
 
-            opacity: 0.65;
+    75% {
 
-            pointer-events: none;
+        transform:
+            translate3d(
+                65px,
+                75vh,
+                0
+            )
+            rotate(270deg)
+            scale(1.05);
 
-            z-index: 2;
-        }
+        opacity: 0.5;
+    }
 
-        .leaf-one {
-            top: 100px;
-            left: 20px;
-        }
+    90% {
 
-        .leaf-two {
-            top: 100px;
-            right: 20px;
+        opacity: 0.2;
+    }
 
-            transform: scaleX(-1);
-        }
+    100% {
 
-        .leaf-three {
-            bottom: 100px;
-            left: 20px;
+        transform:
+            translate3d(
+                -40px,
+                115vh,
+                0
+            )
+            rotate(360deg)
+            scale(0.7);
 
-            transform: rotate(180deg);
-        }
+        opacity: 0;
+    }
+}
 
-        .leaf-four {
-            bottom: 100px;
-            right: 20px;
 
-            transform: rotate(180deg) scaleX(-1);
-        }
+/* =========================================================
+   SIDE DECORATIVE LEAVES
+========================================================= */
 
+.side-leaf {
 
-        /* =====================================================
-           PARTICLES
-        ===================================================== */
+    position: absolute;
 
-        .particles {
+    color: var(--gold);
 
-            position: fixed;
+    font-size: 65px;
 
-            inset: 0;
+    opacity: 0.45;
 
-            pointer-events: none;
+    z-index: 3;
 
-            overflow: hidden;
+    pointer-events: none;
 
-            z-index: 0;
-        }
+    animation:
+        sideLeafFloat
+        4s
+        ease-in-out
+        infinite;
+}
 
-        .particle {
+.side-left {
 
-            position: absolute;
+    left: 20px;
 
-            width: 3px;
-            height: 3px;
+    top: 100px;
 
-            background: var(--gold);
+    transform: rotate(-20deg);
+}
 
-            border-radius: 50%;
+.side-right {
 
-            animation:
-                floating 8s linear infinite;
+    right: 20px;
 
-            opacity: 0.5;
-        }
+    top: 100px;
 
-        @keyframes floating {
+    transform:
+        scaleX(-1)
+        rotate(-20deg);
+}
 
-            from {
-                transform:
-                    translateY(100vh);
-                opacity: 0;
-            }
+@keyframes sideLeafFloat {
 
-            20% {
-                opacity: 0.7;
-            }
+    0%,
+    100% {
 
-            80% {
-                opacity: 0.7;
-            }
+        transform:
+            translateY(0)
+            rotate(-10deg);
+    }
 
-            to {
-                transform:
-                    translateY(-10vh);
-                opacity: 0;
-            }
-        }
+    50% {
 
+        transform:
+            translateY(15px)
+            rotate(10deg);
+    }
+}
 
-        /* =====================================================
-           CONTENT
-        ===================================================== */
 
-        .content {
+/* =========================================================
+   CONTENT
+========================================================= */
 
-            position: relative;
+.content {
 
-            z-index: 3;
+    position: relative;
 
-            padding: 80px 8%;
-        }
+    z-index: 6;
 
+    padding:
+        70px 8%;
+}
 
-        /* =====================================================
-           HERO
-        ===================================================== */
 
-        .hero {
+/* =========================================================
+   HERO
+========================================================= */
 
-            text-align: center;
+.hero {
 
-            min-height: 90vh;
+    min-height: 78vh;
 
-            display: flex;
+    display: flex;
 
-            align-items: center;
+    align-items: center;
 
-            justify-content: center;
-        }
+    justify-content: center;
 
-        .hero-content {
-            max-width: 900px;
-        }
+    text-align: center;
+}
 
-        .department {
+.dept {
 
-            font-family: 'Cinzel', serif;
+    font-family: 'Cinzel', serif;
 
-            color: var(--silver);
+    color: var(--silver);
 
-            letter-spacing: 8px;
+    letter-spacing: 7px;
 
-            font-size: 14px;
+    font-size: 14px;
 
-            margin-bottom: 25px;
-        }
+    margin-bottom: 20px;
+}
 
-        .event-title {
+.title {
 
-            font-family: 'Great Vibes', cursive;
+    font-family:
+        'Great Vibes',
+        cursive;
 
-            color: var(--gold);
+    color: var(--gold);
 
-            font-size:
-                clamp(80px, 14vw, 160px);
+    font-size:
+        clamp(
+            75px,
+            13vw,
+            150px
+        );
 
-            line-height: 1;
+    line-height: 1;
+}
 
-            text-shadow:
-                0 0 25px
-                rgba(212,175,55,0.2);
-        }
+.year {
 
-        .event-year {
+    font-family:
+        'Cinzel',
+        serif;
 
-            font-family: 'Cinzel', serif;
+    color: var(--silver);
 
-            color: var(--silver);
+    letter-spacing: 10px;
 
-            letter-spacing: 12px;
+    font-size: 34px;
 
-            font-size: 35px;
+    margin-top: 10px;
+}
 
-            margin-top: 15px;
-        }
+.farewell {
 
-        .farewell {
+    font-family:
+        'Cinzel',
+        serif;
 
-            font-family: 'Cinzel', serif;
+    color: var(--light-gold);
 
-            color: var(--light-gold);
+    font-size:
+        clamp(
+            28px,
+            5vw,
+            50px
+        );
 
-            font-size:
-                clamp(30px, 5vw, 55px);
+    letter-spacing: 4px;
 
-            letter-spacing: 5px;
+    margin-top: 22px;
+}
 
-            margin-top: 25px;
-        }
+.line {
 
-        .gold-line {
+    height: 1px;
 
-            width: 220px;
+    width: 230px;
 
-            height: 1px;
+    margin: 30px auto;
 
-            margin: 35px auto;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+}
 
-            background:
-                linear-gradient(
-                    to right,
-                    transparent,
-                    var(--gold),
-                    transparent
-                );
-        }
+.hero p {
 
-        .hero-text {
+    font-family:
+        'Playfair Display',
+        serif;
 
-            font-family:
-                'Playfair Display',
-                serif;
+    color: #ddd;
 
-            color: #dddddd;
+    font-size: 19px;
 
-            font-size: 21px;
+    line-height: 1.85;
+}
 
-            line-height: 1.8;
-        }
 
+/* =========================================================
+   SECTIONS
+========================================================= */
 
-        /* =====================================================
-           SECTION TITLE
-        ===================================================== */
+.section {
 
-        .section-title {
+    margin-top: 80px;
+}
 
-            text-align: center;
+.heading {
 
-            font-family: 'Cinzel', serif;
+    text-align: center;
 
-            color: var(--gold);
+    font-family:
+        'Cinzel',
+        serif;
 
-            letter-spacing: 4px;
+    color: var(--gold);
 
-            font-size: 34px;
+    letter-spacing: 3px;
 
-            margin-bottom: 15px;
-        }
+    font-size: 30px;
+}
 
-        .section-line {
+.subline {
 
-            width: 100px;
+    height: 1px;
 
-            height: 1px;
+    width: 100px;
 
-            margin: 0 auto 45px;
+    margin:
+        15px auto 38px;
 
-            background:
-                linear-gradient(
-                    to right,
-                    transparent,
-                    var(--gold),
-                    transparent
-                );
-        }
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+}
 
 
-        /* =====================================================
-           MESSAGE
-        ===================================================== */
+/* =========================================================
+   MESSAGE
+========================================================= */
 
-        .message-box {
+.message {
 
-            max-width: 850px;
+    max-width: 850px;
 
-            margin: auto;
+    margin: auto;
 
-            padding: 50px 40px;
+    padding: 45px 35px;
 
-            border:
-                1px solid
-                rgba(212,175,55,0.5);
+    text-align: center;
 
-            background:
-                rgba(0,0,0,0.4);
+    border:
+        1px solid
+        rgba(212,175,55,0.5);
 
-            text-align: center;
+    background:
+        rgba(0,0,0,0.5);
 
-            position: relative;
-        }
+    position: relative;
+}
 
-        .message-box::before {
+.message::before {
 
-            content: "❝";
+    content: "❝";
 
-            position: absolute;
+    position: absolute;
 
-            top: 5px;
+    top: 0;
 
-            left: 25px;
+    left: 20px;
 
-            color: var(--gold);
+    color: var(--gold);
 
-            font-size: 65px;
-        }
+    font-size: 65px;
+}
 
-        .message-box p {
+.message p {
 
-            font-family:
-                'Playfair Display',
-                serif;
+    font-family:
+        'Playfair Display',
+        serif;
 
-            color: #dddddd;
+    color: #ddd;
 
-            font-size: 19px;
+    font-size: 19px;
 
-            line-height: 1.9;
-        }
+    line-height: 1.85;
+}
 
-        .signature {
+.signature {
 
-            margin-top: 30px;
+    font-family:
+        'Great Vibes',
+        cursive;
 
-            font-family:
-                'Great Vibes',
-                cursive;
+    color: var(--gold);
 
-            color: var(--gold);
+    font-size: 38px;
 
-            font-size: 40px;
-        }
+    margin-top: 25px;
+}
 
 
-        /* =====================================================
-           EVENT DETAILS
-        ===================================================== */
+/* =========================================================
+   EVENT DETAILS
+========================================================= */
 
-        .details {
+.details {
 
-            display: grid;
+    max-width: 760px;
 
-            grid-template-columns:
-                repeat(2, 1fr);
+    margin: auto;
 
-            max-width: 800px;
+    display: grid;
 
-            margin: auto;
+    grid-template-columns:
+        1fr 1fr;
 
-            border:
-                1px solid
-                rgba(212,175,55,0.5);
-        }
+    border:
+        1px solid
+        rgba(212,175,55,0.5);
+}
 
-        .detail {
+.detail {
 
-            padding: 40px 20px;
+    text-align: center;
 
-            text-align: center;
+    padding: 35px 20px;
+}
 
-            border-right:
-                1px solid
-                rgba(212,175,55,0.4);
-        }
+.detail:first-child {
 
-        .detail:last-child {
-            border-right: none;
-        }
+    border-right:
+        1px solid
+        rgba(212,175,55,0.4);
+}
 
-        .detail-icon {
-            font-size: 40px;
+.icon {
 
-            margin-bottom: 15px;
-        }
+    font-size: 35px;
 
-        .detail h3 {
+    margin-bottom: 10px;
+}
 
-            color: var(--gold);
+.detail h3 {
 
-            font-family: 'Cinzel', serif;
+    font-family:
+        'Cinzel',
+        serif;
 
-            letter-spacing: 2px;
+    color: var(--gold);
 
-            margin-bottom: 10px;
-        }
+    letter-spacing: 2px;
 
-        .detail p {
+    margin-bottom: 8px;
+}
 
-            color: #ddd;
+.detail p {
 
-            font-family:
-                'Playfair Display',
-                serif;
+    font-family:
+        'Playfair Display',
+        serif;
 
-            font-size: 18px;
+    color: #ddd;
 
-            line-height: 1.7;
-        }
+    font-size: 18px;
 
+    line-height: 1.7;
+}
 
-        /* =====================================================
-           JOIN US
-        ===================================================== */
 
-        .join {
+/* =========================================================
+   WILL YOU JOIN US
+========================================================= */
 
-            text-align: center;
-        }
+.join {
 
-        .join-text {
+    text-align: center;
+}
 
-            max-width: 800px;
+.confirm {
 
-            margin: auto;
+    padding:
+        15px 34px;
 
-            color: #ddd;
+    border:
+        1px solid
+        var(--gold);
 
-            font-family:
-                'Playfair Display',
-                serif;
+    cursor: pointer;
 
-            font-size: 20px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--light-gold),
+            var(--gold)
+        );
 
-            line-height: 1.8;
-        }
+    color: #111;
 
-        .confirmation-area {
+    font-family:
+        'Cinzel',
+        serif;
 
-            margin-top: 35px;
-        }
+    font-weight: 700;
 
-        .confirm-btn {
+    letter-spacing: 1.5px;
 
-            padding: 16px 40px;
+    margin-top: 28px;
 
-            border: 1px solid var(--gold);
+    transition: 0.3s;
+}
 
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--light-gold),
-                    var(--gold),
-                    var(--dark-gold)
-                );
+.confirm:hover {
 
-            color: #111;
+    transform:
+        translateY(-3px)
+        scale(1.04);
 
-            font-family: 'Cinzel', serif;
+    box-shadow:
+        0 8px 25px
+        rgba(212,175,55,0.4);
+}
 
-            font-weight: 600;
+.confirmed {
 
-            letter-spacing: 2px;
+    display: none;
 
-            cursor: pointer;
+    color: var(--gold);
 
-            transition: 0.4s;
-        }
+    font-family:
+        'Great Vibes',
+        cursive;
 
-        .confirm-btn:hover {
+    font-size: 36px;
 
-            transform:
-                translateY(-4px)
-                scale(1.04);
+    margin-top: 22px;
+}
 
-            box-shadow:
-                0 10px 30px
-                rgba(212,175,55,0.4);
-        }
+.confirmed.show {
 
-        .confirmation-message {
+    display: block;
+}
 
-            display: none;
 
-            margin-top: 25px;
+/* =========================================================
+   LETTERS
+========================================================= */
 
-            font-family:
-                'Great Vibes',
-                cursive;
+.letter {
 
-            color: var(--gold);
+    max-width: 850px;
 
-            font-size: 38px;
-        }
+    margin: 25px auto;
 
-        .confirmation-message.show {
-            display: block;
-        }
+    padding: 35px;
 
+    border-left:
+        2px solid
+        var(--gold);
 
-        /* =====================================================
-           LETTERS
-        ===================================================== */
+    border-right:
+        1px solid
+        var(--silver);
 
-        .letter {
+    background:
+        rgba(255,255,255,0.025);
+}
 
-            max-width: 850px;
+.letter h3 {
 
-            margin: 25px auto;
+    font-family:
+        'Cinzel',
+        serif;
 
-            padding: 40px;
+    color: var(--gold);
 
-            border-left:
-                2px solid
-                var(--gold);
+    margin-bottom: 18px;
 
-            border-right:
-                1px solid
-                var(--silver);
+    letter-spacing: 1.5px;
+}
 
-            background:
-                rgba(255,255,255,0.025);
-        }
+.letter p {
 
-        .letter h3 {
+    font-family:
+        'Playfair Display',
+        serif;
 
-            color: var(--gold);
+    color: #ddd;
 
-            font-family: 'Cinzel', serif;
+    font-size: 17px;
 
-            letter-spacing: 2px;
+    line-height: 1.9;
+}
 
-            margin-bottom: 20px;
-        }
 
-        .letter p {
+/* =========================================================
+   LOVE LINE
+========================================================= */
 
-            color: #ddd;
+.love-line {
 
-            font-family:
-                'Playfair Display',
-                serif;
+    text-align: center;
 
-            font-size: 17px;
+    font-family:
+        'Great Vibes',
+        cursive;
 
-            line-height: 1.9;
-        }
+    color: var(--gold);
 
+    font-size:
+        clamp(
+            32px,
+            6vw,
+            55px
+        );
 
-        /* =====================================================
-           LOVE LINE
-        ===================================================== */
+    line-height: 1.5;
 
-        .love-line {
+    margin: 50px auto;
+}
 
-            text-align: center;
+.love-line::before {
 
-            margin: 55px auto;
+    content: "✦";
 
-            max-width: 800px;
+    display: block;
 
-            font-family:
-                'Great Vibes',
-                cursive;
+    color: var(--silver);
 
-            color: var(--gold);
+    font-size: 25px;
 
-            font-size:
-                clamp(35px, 6vw, 58px);
+    margin-bottom: 10px;
+}
 
-            line-height: 1.5;
-        }
+.love-line::after {
 
-        .love-line::before {
-            content: "✦";
-            display: block;
+    content: "✦";
 
-            font-family: serif;
+    display: block;
 
-            color: var(--silver);
+    color: var(--silver);
 
-            font-size: 25px;
+    font-size: 25px;
 
-            margin-bottom: 15px;
-        }
+    margin-top: 10px;
+}
 
-        .love-line::after {
-            content: "✦";
-            display: block;
 
-            font-family: serif;
+/* =========================================================
+   FINAL SECTION
+========================================================= */
 
-            color: var(--silver);
+.final {
 
-            font-size: 25px;
+    text-align: center;
 
-            margin-top: 15px;
-        }
+    padding:
+        40px 0 80px;
+}
 
+.final-title {
 
-        /* =====================================================
-           FINAL
-        ===================================================== */
+    font-family:
+        'Great Vibes',
+        cursive;
 
-        .final {
+    color: var(--gold);
 
-            text-align: center;
+    font-size:
+        clamp(
+            55px,
+            9vw,
+            90px
+        );
+}
 
-            padding-bottom: 100px;
-        }
+.final p {
 
-        .final-title {
+    font-family:
+        'Playfair Display',
+        serif;
 
-            font-family:
-                'Great Vibes',
-                cursive;
+    color: #ddd;
 
-            color: var(--gold);
+    font-size: 19px;
 
-            font-size:
-                clamp(55px, 9vw, 100px);
-        }
+    line-height: 1.8;
+}
 
-        .final-text {
+.love {
 
-            font-family:
-                'Playfair Display',
-                serif;
+    font-family:
+        'Great Vibes',
+        cursive;
 
-            color: #ddd;
+    color: var(--gold);
 
-            font-size: 20px;
+    font-size: 38px;
 
-            line-height: 1.9;
-        }
+    margin-top: 25px;
+}
 
-        .love {
 
-            margin-top: 35px;
+/* =========================================================
+   FOOTER
+========================================================= */
 
-            font-family:
-                'Great Vibes',
-                cursive;
+footer {
 
-            color: var(--gold);
+    text-align: center;
 
-            font-size: 40px;
-        }
+    border-top:
+        1px solid
+        rgba(212,175,55,0.4);
 
+    padding: 25px;
 
-        /* =====================================================
-           FOOTER
-        ===================================================== */
+    color: #aaa;
 
-        footer {
+    letter-spacing: 1.5px;
 
-            text-align: center;
+    font-size: 12px;
+}
 
-            padding: 30px;
+footer span {
 
-            border-top:
-                1px solid
-                rgba(212,175,55,0.4);
+    color: var(--gold);
+}
 
-            color: #aaa;
 
-            font-size: 13px;
+/* =========================================================
+   MOBILE
+========================================================= */
 
-            letter-spacing: 2px;
-        }
+@media(max-width:650px) {
 
-        footer span {
-            color: var(--gold);
-        }
+    .opening-card {
 
+        width: 90vw;
 
-        /* =====================================================
-           MOBILE
-        ===================================================== */
+        height: 90vh;
+    }
 
-        @media(max-width: 700px) {
+    .open-btn {
 
-            .opening-card {
+        bottom: 22px;
 
-                width: 90vw;
+        font-size: 11px;
 
-            }
+        padding:
+            12px 20px;
+    }
 
-            .open-container {
+    .content {
 
-                bottom: 25px;
-            }
+        padding:
+            55px 7%;
+    }
 
-            .open-btn {
+    .dept {
 
-                padding: 13px 25px;
+        letter-spacing: 3px;
 
-                font-size: 12px;
-            }
+        font-size: 11px;
+    }
 
-            .invitation-wrapper {
+    .year {
 
-                width: 92%;
+        font-size: 24px;
 
-                margin: 20px auto;
+        letter-spacing: 6px;
+    }
 
-                box-shadow:
-                    0 0 0 4px #080808,
-                    0 0 0 6px var(--gold);
-            }
+    .hero p,
+    .message p,
+    .letter p {
 
-            .content {
+        font-size: 16px;
+    }
 
-                padding: 60px 7%;
-            }
+    .details {
 
-            .department {
+        grid-template-columns: 1fr;
+    }
 
-                letter-spacing: 4px;
+    .detail:first-child {
 
-                font-size: 11px;
-            }
+        border-right: none;
 
-            .event-year {
+        border-bottom:
+            1px solid
+            rgba(212,175,55,0.4);
+    }
 
-                font-size: 25px;
+    .message {
 
-                letter-spacing: 7px;
-            }
+        padding:
+            40px 20px;
+    }
 
-            .farewell {
+    .letter {
 
-                font-size: 28px;
+        padding:
+            30px 20px;
+    }
 
-                letter-spacing: 3px;
-            }
+    .fall-leaf {
 
-            .hero-text {
+        font-size: 25px;
+    }
+}
 
-                font-size: 17px;
-            }
-
-            .details {
-
-                grid-template-columns: 1fr;
-            }
-
-            .detail {
-
-                border-right: none;
-
-                border-bottom:
-                    1px solid
-                    rgba(212,175,55,0.4);
-            }
-
-            .detail:last-child {
-
-                border-bottom: none;
-            }
-
-            .message-box {
-
-                padding: 40px 20px;
-            }
-
-            .letter {
-
-                padding: 30px 20px;
-            }
-
-            .corner {
-
-                transform: scale(0.7);
-            }
-
-        }
-
-    </style>
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- =====================================================
-         OPENING PAGE
-    ====================================================== -->
+<!-- ========================================================
+     OPENING PAGE
+========================================================= -->
 
-    <div class="opening" id="opening">
+<div
+    class="opening"
+    id="opening">
 
-        <div class="opening-card">
+    <div class="opening-card">
 
-            <div class="opening-overlay"></div>
+        <button
+            class="open-btn"
+            onclick="openInvitation()">
 
-            <div class="open-container">
+            ✦ OPEN INVITATION ✦
 
-                <button
-                    class="open-btn"
-                    onclick="openInvitation()">
+        </button>
 
-                    ✦ OPEN INVITATION ✦
+    </div>
 
-                </button>
+</div>
 
-            </div>
+
+
+<!-- ========================================================
+     MAIN INVITATION
+========================================================= -->
+
+<main
+    class="main"
+    id="main">
+
+    <div class="wrapper">
+
+
+        <!-- ==================================================
+             ANIMATED LEAVES
+        =================================================== -->
+
+        <div
+            class="animated-leaves"
+            aria-hidden="true">
+
+            <span class="fall-leaf leaf-a">❧</span>
+
+            <span class="fall-leaf leaf-b">❧</span>
+
+            <span class="fall-leaf leaf-c">❧</span>
+
+            <span class="fall-leaf leaf-d">❧</span>
+
+            <span class="fall-leaf leaf-e">❧</span>
+
+            <span class="fall-leaf leaf-f">❧</span>
+
+            <span class="fall-leaf leaf-g">❧</span>
+
+            <span class="fall-leaf leaf-h">❧</span>
+
+            <span class="fall-leaf leaf-i">❧</span>
+
+            <span class="fall-leaf leaf-j">❧</span>
 
         </div>
 
-    </div>
+
+        <!-- SIDE DECORATION -->
+
+        <div class="side-leaf side-left">
+            ❧
+        </div>
+
+        <div class="side-leaf side-right">
+            ❧
+        </div>
 
 
-    <!-- GOLD PARTICLES -->
 
-    <div
-        class="particles"
-        id="particles">
-    </div>
+        <div class="content">
 
 
-    <!-- =====================================================
-         MAIN INVITATION
-    ====================================================== -->
+            <!-- ==================================================
+                 HERO
+            =================================================== -->
 
-    <main class="main" id="main">
+            <section class="hero">
 
+                <div>
 
-        <div class="invitation-wrapper">
+                    <div class="dept">
 
-
-            <!-- Decorative corners -->
-
-            <div class="corner top-left"></div>
-
-            <div class="corner top-right"></div>
-
-            <div class="corner bottom-left"></div>
-
-            <div class="corner bottom-right"></div>
-
-
-            <!-- Decorative leaves -->
-
-            <div class="leaf-decoration leaf-one">
-                ❧
-            </div>
-
-            <div class="leaf-decoration leaf-two">
-                ❧
-            </div>
-
-            <div class="leaf-decoration leaf-three">
-                ❧
-            </div>
-
-            <div class="leaf-decoration leaf-four">
-                ❧
-            </div>
-
-
-            <div class="content">
-
-
-                <!-- =================================================
-                     HERO
-                ================================================== -->
-
-                <section class="hero">
-
-                    <div class="hero-content">
-
-
-                        <div class="department">
-
-                            MBA DEPARTMENT
-
-                        </div>
-
-
-                        <div class="event-title">
-
-                            Vidaaya
-
-                        </div>
-
-
-                        <div class="event-year">
-
-                            2026
-
-                        </div>
-
-
-                        <div class="farewell">
-
-                            FAREWELL PARTY
-
-                        </div>
-
-
-                        <div class="gold-line"></div>
-
-
-                        <p class="hero-text">
-
-                            A beautiful journey deserves
-                            a beautiful goodbye.
-
-                            <br><br>
-
-                            Join us as we celebrate the
-                            memories, friendships,
-                            laughter and achievements
-                            of our beloved seniors.
-
-                        </p>
-
+                        MBA DEPARTMENT
 
                     </div>
 
-                </section>
 
+                    <div class="title">
 
-
-                <!-- =================================================
-                     INVITATION MESSAGE
-                ================================================== -->
-
-                <section>
-
-                    <h2 class="section-title">
-
-                        YOU ARE CORDIALLY INVITED
-
-                    </h2>
-
-
-                    <div class="section-line"></div>
-
-
-                    <div class="message-box">
-
-
-                        <p>
-
-                            Some people just pass through
-                            our lives, and some leave
-                            footprints on our hearts.
-
-                            You're among those special
-                            people who have made our
-                            journey more meaningful.
-
-                        </p>
-
-
-                        <br>
-
-
-                        <p>
-
-                            Thank you for the guidance,
-                            the laughter, and the memories
-                            we'll carry forever.
-
-                        </p>
-
-
-                        <br>
-
-
-                        <p>
-
-                            This isn't goodbye,
-                            it's just
-
-                            <strong>
-                                see you later.
-                            </strong>
-
-                        </p>
-
-
-                        <div class="signature">
-
-                            With Love,<br>
-                            Your Juniors
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- =================================================
-                     EVENT DETAILS
-                ================================================== -->
-
-                <section>
-
-
-                    <h2 class="section-title">
-
-                        EVENT DETAILS
-
-                    </h2>
-
-
-                    <div class="section-line"></div>
-
-
-                    <div class="details">
-
-
-                        <div class="detail">
-
-                            <div class="detail-icon">
-
-                                📅
-
-                            </div>
-
-                            <h3>
-
-                                DATE
-
-                            </h3>
-
-                            <p>
-
-                                30th August
-
-                                <br>
-
-                                2026
-
-                            </p>
-
-                        </div>
-
-
-                        <div class="detail">
-
-                            <div class="detail-icon">
-
-                                🕕
-
-                            </div>
-
-                            <h3>
-
-                                TIME
-
-                            </h3>
-
-                            <p>
-
-                                Evening
-
-                                <br>
-
-                                6:00 PM
-
-                            </p>
-
-                        </div>
-
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- =================================================
-                     WILL YOU JOIN US
-                ================================================== -->
-
-                <section class="join">
-
-
-                    <h2 class="section-title">
-
-                        WILL YOU JOIN US?
-
-                    </h2>
-
-
-                    <div class="section-line"></div>
-
-
-                    <div class="message-box">
-
-
-                        <p class="join-text">
-
-                            Before we say goodbye to this
-                            chapter, let's celebrate
-                            everything that made our
-                            journey special — together,
-                            one final time.
-
-                        </p>
-
-
-                        <div class="confirmation-area">
-
-
-                            <button
-                                class="confirm-btn"
-                                onclick="confirmAttendance()">
-
-                                YES, I'LL BE THERE! ✨
-
-                            </button>
-
-
-                            <div
-                                class="confirmation-message"
-                                id="confirmationMessage">
-
-                                We can't wait to celebrate
-                                with you! ❤️
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- =================================================
-                     WITH LOVE
-                ================================================== -->
-
-                <section>
-
-
-                    <h2 class="section-title">
-
-                        WITH LOVE & GRATITUDE
-
-                    </h2>
-
-
-                    <div class="section-line"></div>
-
-
-                    <div class="letter">
-
-
-                        <h3>
-
-                            SOME PEOPLE DON'T JUST
-                            PASS THROUGH YOUR LIFE —
-                            THEY SHAPE IT.
-
-                        </h3>
-
-
-                        <p>
-
-                            Dear Seniors,
-
-                            <br><br>
-
-                            You walked this path first —
-                            through deadlines, presentations,
-                            interviews, challenges and
-                            self-doubt — and showed us
-                            it's possible to come out
-                            stronger on the other side.
-
-                            <br><br>
-
-                            Thank you for the guidance
-                            when we were lost, the laughter
-                            that made hard days easier,
-                            and the example you set
-                            without even trying.
-
-                        </p>
+                        Vidaaya
 
                     </div>
 
 
+                    <div class="year">
 
-                    <div class="letter">
-
-
-                        <h3>
-
-                            UNTIL WE MEET AGAIN...
-
-                        </h3>
-
-
-                        <p>
-
-                            Some people just pass through
-                            our lives, and some leave
-                            footprints on our hearts.
-
-                            <br><br>
-
-                            You're leaving this campus,
-                            but not our memories.
-
-                            <br><br>
-
-                            As you step into new beginnings
-                            and new opportunities, carry
-                            the same fire that got you
-                            through this campus.
-
-                            <br><br>
-
-                            The world is lucky to have
-                            what you've become.
-
-                            Go build the future you've
-                            worked so hard for —
-                            we'll be cheering, always.
-
-                        </p>
+                        2026
 
                     </div>
 
 
-                    <!-- REPLACEMENT FOR ONE LAST PAGE -->
+                    <div class="farewell">
 
-                    <div class="love-line">
-
-                        With Love, Gratitude &
-                        Memories That Last Forever.
+                        FAREWELL PARTY
 
                     </div>
 
 
-                </section>
+                    <div class="line"></div>
 
 
+                    <p>
 
-                <!-- =================================================
-                     FINAL
-                ================================================== -->
-
-                <section class="final">
-
-
-                    <div class="final-title">
-
-                        Until We Meet Again...
-
-                    </div>
-
-
-                    <div class="gold-line"></div>
-
-
-                    <p class="final-text">
-
-                        One chapter ends,
-                        another beautiful chapter begins.
+                        A beautiful journey deserves
+                        a beautiful goodbye.
 
                         <br><br>
 
-                        May your future be filled with
-                        success, happiness and endless
-                        possibilities.
+                        Join us as we celebrate the
+                        memories, friendships,
+                        laughter and achievements
+                        of our beloved seniors.
+
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 INVITATION MESSAGE
+            =================================================== -->
+
+            <section class="section">
+
+                <h2 class="heading">
+
+                    YOU ARE CORDIALLY INVITED
+
+                </h2>
+
+
+                <div class="subline"></div>
+
+
+                <div class="message">
+
+                    <p>
+
+                        Some people just pass through
+                        our lives, and some leave
+                        footprints on our hearts.
+
+                        You're among those special
+                        people who have made our
+                        journey more meaningful.
 
                         <br><br>
 
-                        Thank you for being a wonderful
-                        part of our journey.
+                        Thank you for the guidance,
+                        the laughter, and the memories
+                        we'll carry forever.
+
+                        <br><br>
+
+                        This isn't goodbye,
+                        it's just
+                        <strong>
+                            see you later.
+                        </strong>
 
                     </p>
 
 
-                    <div class="love">
+                    <div class="signature">
 
-                        With Love, Pride & Gratitude ❤️
-
-                        <br>
-
+                        With Love,<br>
                         Your Juniors
 
                     </div>
 
+                </div>
 
-                </section>
-
-
-            </div>
+            </section>
 
 
-            <!-- =================================================
-                 FOOTER
-            ================================================== -->
 
-            <footer>
+            <!-- ==================================================
+                 EVENT DETAILS
+            =================================================== -->
 
-                <span>VIDAAYA 2026</span>
+            <section class="section">
 
-                &nbsp; | &nbsp;
+                <h2 class="heading">
 
-                MBA DEPARTMENT
+                    EVENT DETAILS
 
-                &nbsp; | &nbsp;
+                </h2>
 
-                CHETAN BUSINESS SCHOOL
 
-            </footer>
+                <div class="subline"></div>
+
+
+                <div class="details">
+
+
+                    <div class="detail">
+
+                        <div class="icon">
+
+                            📅
+
+                        </div>
+
+                        <h3>
+
+                            DATE
+
+                        </h3>
+
+                        <p>
+
+                            30th August
+
+                            <br>
+
+                            2026
+
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="detail">
+
+                        <div class="icon">
+
+                            🕕
+
+                        </div>
+
+                        <h3>
+
+                            TIME
+
+                        </h3>
+
+                        <p>
+
+                            Evening
+
+                            <br>
+
+                            6:00 PM
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 CONFIRMATION
+            =================================================== -->
+
+            <section
+                class="section join">
+
+
+                <h2 class="heading">
+
+                    WILL YOU JOIN US?
+
+                </h2>
+
+
+                <div class="subline"></div>
+
+
+                <div class="message">
+
+
+                    <p>
+
+                        Before we say goodbye to this
+                        chapter, let's celebrate
+                        everything that made our
+                        journey special — together,
+                        one final time.
+
+                    </p>
+
+
+                    <button
+                        class="confirm"
+                        id="confirmBtn"
+                        onclick="confirmAttendance()">
+
+                        YES, I'LL BE THERE! ✨
+
+                    </button>
+
+
+                    <div
+                        class="confirmed"
+                        id="confirmed">
+
+                        We can't wait to celebrate
+                        with you! ❤️
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 LOVE & GRATITUDE
+            =================================================== -->
+
+            <section class="section">
+
+
+                <h2 class="heading">
+
+                    WITH LOVE & GRATITUDE
+
+                </h2>
+
+
+                <div class="subline"></div>
+
+
+                <div class="letter">
+
+
+                    <h3>
+
+                        SOME PEOPLE DON'T JUST PASS
+                        THROUGH YOUR LIFE —
+                        THEY SHAPE IT.
+
+                    </h3>
+
+
+                    <p>
+
+                        Dear Seniors,
+
+                        <br><br>
+
+                        You walked this path first —
+                        through deadlines, presentations,
+                        interviews, challenges and
+                        self-doubt — and showed us
+                        it's possible to come out
+                        stronger on the other side.
+
+                        <br><br>
+
+                        Thank you for the guidance
+                        when we were lost, the laughter
+                        that made hard days easier,
+                        and the example you set
+                        without even trying.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="letter">
+
+
+                    <h3>
+
+                        UNTIL WE MEET AGAIN...
+
+                    </h3>
+
+
+                    <p>
+
+                        Some people just pass through
+                        our lives, and some leave
+                        footprints on our hearts.
+
+                        <br><br>
+
+                        You're leaving this campus,
+                        but not our memories.
+
+                        <br><br>
+
+                        As you step into new beginnings
+                        and new opportunities, carry
+                        the same fire that got you
+                        through this campus.
+
+                        <br><br>
+
+                        The world is lucky to have
+                        what you've become.
+
+                        Go build the future you've
+                        worked so hard for —
+                        we'll be cheering, always.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- REPLACEMENT FOR ONE LAST PAGE -->
+
+                <div class="love-line">
+
+                    With Love, Gratitude &
+                    Memories That Last Forever.
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 FINAL MESSAGE
+            =================================================== -->
+
+            <section class="final">
+
+
+                <div class="final-title">
+
+                    Until We Meet Again...
+
+                </div>
+
+
+                <div class="line"></div>
+
+
+                <p>
+
+                    One chapter ends,
+                    another beautiful chapter begins.
+
+                    <br><br>
+
+                    May your future be filled with
+                    success, happiness and endless
+                    possibilities.
+
+                    <br><br>
+
+                    Thank you for being a wonderful
+                    part of our journey.
+
+                </p>
+
+
+                <div class="love">
+
+                    With Love, Pride & Gratitude ❤️
+
+                    <br>
+
+                    Your Juniors
+
+                </div>
+
+
+            </section>
 
 
         </div>
 
-    </main>
+
+
+        <!-- ==================================================
+             FOOTER
+        =================================================== -->
+
+        <footer>
+
+            <span>
+                VIDAAYA 2026
+            </span>
+
+            &nbsp; | &nbsp;
+
+            MBA DEPARTMENT
+
+            &nbsp; | &nbsp;
+
+            CHETAN BUSINESS SCHOOL
+
+        </footer>
+
+
+    </div>
+
+</main>
 
 
 
-    <script>
+<script>
 
-        /* =====================================================
-           OPEN INVITATION
-        ===================================================== */
+/* =========================================================
+   OPEN INVITATION
+========================================================= */
 
-        function openInvitation() {
+function openInvitation() {
 
-            const opening =
-                document.getElementById("opening");
+    const opening =
+        document.getElementById("opening");
 
-            const main =
-                document.getElementById("main");
-
-
-            opening.classList.add("hide");
-
-            main.classList.add("show");
+    const main =
+        document.getElementById("main");
 
 
-            createParticles();
+    opening.classList.add("hide");
+
+    main.classList.add("show");
 
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+    window.scrollTo({
 
-        }
+        top: 0,
 
+        behavior: "smooth"
 
+    });
 
-        /* =====================================================
-           GOLD PARTICLES
-        ===================================================== */
-
-        function createParticles() {
-
-            const container =
-                document.getElementById("particles");
+}
 
 
-            for (let i = 0; i < 70; i++) {
+/* =========================================================
+   CONFIRM ATTENDANCE
+========================================================= */
 
-                const particle =
-                    document.createElement("div");
+function confirmAttendance() {
 
+    const message =
+        document.getElementById(
+            "confirmed"
+        );
 
-                particle.className =
-                    "particle";
-
-
-                particle.style.left =
-                    Math.random() * 100 + "%";
-
-
-                particle.style.animationDelay =
-                    Math.random() * 8 + "s";
-
-
-                particle.style.animationDuration =
-                    (5 + Math.random() * 7) + "s";
+    const button =
+        document.getElementById(
+            "confirmBtn"
+        );
 
 
-                const size =
-                    (2 + Math.random() * 4) + "px";
+    message.classList.add("show");
 
 
-                particle.style.width =
-                    size;
+    button.innerHTML =
+        "✓ CONFIRMED";
 
+    button.disabled = true;
 
-                particle.style.height =
-                    size;
+}
 
-
-                container.appendChild(
-                    particle
-                );
-
-            }
-
-        }
-
-
-
-        /* =====================================================
-           CONFIRMATION
-        ===================================================== */
-
-        function confirmAttendance() {
-
-            const message =
-                document.getElementById(
-                    "confirmationMessage"
-                );
-
-
-            const button =
-                document.querySelector(
-                    ".confirm-btn"
-                );
-
-
-            message.classList.add("show");
-
-
-            button.innerHTML =
-                "✓ CONFIRMED";
-
-
-            button.style.pointerEvents =
-                "none";
-
-
-            button.style.opacity =
-                "0.8";
-
-        }
-
-    </script>
+</script>
 
 </body>
 </html>
